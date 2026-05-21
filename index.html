@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Keeta BD 指挥中心</title>
+<title>Keeta BD Command Center</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{--blue:#00d4ff;--red:#FF5252;--yellow:#FFD740;--green:#00E676;--bg:#0a0e1a;--card:#111827;--text:#e8f4ff;--muted:#8bacc8;--sidebar-w:200px}
@@ -50,7 +50,7 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-
 .chart-val{font-size:10px;color:var(--text);font-weight:700}
 .pct-row{display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid rgba(0,212,255,0.06)}
 .pct-row:last-child{border-bottom:none}
-.pct-label{font-size:12px;color:var(--muted);width:140px;flex-shrink:0}
+.pct-label{font-size:12px;color:var(--muted);width:160px;flex-shrink:0}
 .pct-bar-bg{flex:1;height:12px;background:rgba(255,255,255,0.05);border-radius:6px;overflow:hidden}
 .pct-bar-fill{height:100%;border-radius:6px;transition:width 0.6s ease}
 .pct-value{font-size:12px;font-weight:800;width:60px;text-align:right;flex-shrink:0}
@@ -101,9 +101,6 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-
 .progress-fill.yellow{background:linear-gradient(90deg,#FFD740,#FFAB40)}
 .progress-fill.red{background:linear-gradient(90deg,#FF5252,#FF8A80)}
 .member-status{font-size:10px;font-weight:700}
-.risk-high{color:var(--red);font-weight:800}
-.risk-extreme{color:var(--red);font-weight:900}
-.risk-medium{color:var(--yellow);font-weight:800}
 .sparkline{display:flex;align-items:flex-end;gap:2px;height:30px;margin-top:8px}
 .sparkline-bar{flex:1;border-radius:2px 2px 0 0;background:var(--blue);opacity:0.6;transition:height 0.3s}
 .sparkline-bar:last-child{opacity:1}
@@ -117,18 +114,18 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-
 <aside class="sidebar">
 <div class="sidebar-logo"><h2>🚀 Keeta BD HQ</h2></div>
 <nav class="sidebar-nav">
-<a class="active" data-section="overview">📊 数据总览</a>
-<a data-section="competition">🏆 竞赛排行</a>
-<a data-section="team">👥 BD 明细</a>
-<a data-section="promo">💰 折扣覆盖</a>
-<a data-section="tasks">📋 优先任务</a>
+<a class="active" data-section="overview">📊 Overview</a>
+<a data-section="competition">🏆 Leaderboard</a>
+<a data-section="team">👥 BD Details</a>
+<a data-section="promo">💰 Promo Coverage</a>
+<a data-section="tasks">📋 Priority Tasks</a>
 </nav>
 <div class="sidebar-cron">
-<h4>数据来源</h4>
-<div class="cron-item"><span class="dot"></span> kdata API 自动拉取</div>
+<h4>Data Source</h4>
+<div class="cron-item"><span class="dot"></span> kdata API Auto-pull</div>
 <div class="cron-item"><span class="dot"></span> Dataset 60041382</div>
 </div>
-<div class="sidebar-footer">v2.0 · Data-Driven</div>
+<div class="sidebar-footer">v2.2 · Data-Driven</div>
 </aside>
 <main class="main" id="app"><div style="padding:40px;text-align:center;color:var(--muted)">Loading data...</div></main>
 <script>
@@ -144,7 +141,7 @@ function getGrad(n){var x=0;for(var i=0;i<n.length;i++)x=n.charCodeAt(i)+((x<<5)
 var html='';
 
 // Header
-html+='<div class="header"><div class="header-sub">BD TEAM COMMAND CENTER</div><h1><span>Keeta BD</span> 指挥中心</h1><div class="header-info">所属者：Jaden <span class="data-badge">🟢 LIVE · 数据截止 '+D.dataDate+'</span></div></div>';
+html+='<div class="header"><div class="header-sub">BD TEAM COMMAND CENTER</div><h1><span>Keeta BD</span> Command Center</h1><div class="header-info">Owner: Jaden <span class="data-badge">🟢 LIVE · Data as of '+D.dataDate+'</span></div></div>';
 
 // ===== SECTION: OVERVIEW =====
 html+='<section id="sec-overview">';
@@ -152,12 +149,12 @@ html+='<section id="sec-overview">';
 // Stats row
 html+='<div class="stats-grid">';
 var stats=[
-{l:"竞赛总积分 Points",v:h.totalPointsEarned,c:"blue"},
-{l:"月营业商家 Open Shops",v:ov.monthTotal.openShops.toLocaleString(),c:"blue"},
-{l:"月交易商家 Txn Shops",v:ov.monthTotal.txnShops.toLocaleString(),c:"green"},
-{l:"月订单量 Orders MTD",v:ov.monthTotal.orders.toLocaleString(),c:"green"},
-{l:"折扣菜覆盖率",v:ov.discountProductCoverage,c:"yellow"},
-{l:"距Sprint开始",v:comp.daysLeft+"天",c:comp.daysLeft<=3?"red":"blue"}
+{l:"Competition Points",v:h.totalPointsEarned,c:"blue"},
+{l:"Active Shops (MTD)",v:ov.monthTotal.openShops.toLocaleString(),c:"blue"},
+{l:"Transacting Shops (MTD)",v:ov.monthTotal.txnShops.toLocaleString(),c:"green"},
+{l:"Orders MTD",v:ov.monthTotal.orders.toLocaleString(),c:"green"},
+{l:"Discount Dish Coverage",v:ov.discountProductCoverage,c:"yellow"},
+{l:"Days to Sprint",v:comp.daysLeft+" days",c:comp.daysLeft<=3?"red":"blue"}
 ];
 for(var i=0;i<stats.length;i++){var s=stats[i];html+='<div class="stat-card"><div class="stat-label">'+s.l+'</div><div class="stat-value '+s.c+'">'+s.v+'</div></div>';}
 html+='</div>';
@@ -166,20 +163,19 @@ html+='</div>';
 html+='<div class="two-col">';
 
 // Orders trend bar chart
-html+='<div class="card"><div class="card-title">📈 近7日订单趋势 Daily Orders</div><div class="chart-container"><div class="chart-bar-group">';
+html+='<div class="card"><div class="card-title">📈 Daily Orders — Last 7 Days</div><div class="chart-container"><div class="chart-bar-group">';
 var maxOrd=0;for(var i=0;i<tr.length;i++){if(tr[i].orders>maxOrd)maxOrd=tr[i].orders}
 for(var i=0;i<tr.length;i++){var t=tr[i];var ht=Math.round(t.orders/maxOrd*130);html+='<div class="chart-bar-wrapper"><div class="chart-val">'+Math.round(t.orders/1000*10)/10+'k</div><div class="chart-bar blue" style="height:'+ht+'px"></div><div class="chart-label">'+t.date+'</div></div>';}
 html+='</div></div></div>';
 
 // Promo coverage card
-html+='<div class="card"><div class="card-title">💰 营销活动覆盖率 Promo Coverage</div>';
+html+='<div class="card"><div class="card-title">💰 Promotion Coverage</div>';
 var pcts=[
-{label:"折扣菜 Discount Dish",val:parseFloat(ov.discountProductCoverage),color:"var(--green)"},
-{label:"满折 Full Discount",val:parseFloat(ov.fullDiscountCoverage),color:"var(--yellow)"}
+{label:"Discount Dish",val:parseFloat(ov.discountProductCoverage),color:"var(--green)"},
+{label:"Full Discount (Fulfillment)",val:parseFloat(ov.fullDiscountCoverage),color:"var(--yellow)"}
 ];
 for(var i=0;i<pcts.length;i++){var p=pcts[i];html+='<div class="pct-row"><div class="pct-label">'+p.label+'</div><div class="pct-bar-bg"><div class="pct-bar-fill" style="width:'+p.val+'%;background:'+p.color+'"></div></div><div class="pct-value" style="color:'+p.color+'">'+p.val.toFixed(1)+'%</div></div>';}
-// Trend sparkline for discount coverage
-html+='<div style="margin-top:16px;font-size:11px;color:var(--muted);font-weight:600">折扣菜覆盖率趋势 (7日)</div><div class="sparkline">';
+html+='<div style="margin-top:16px;font-size:11px;color:var(--muted);font-weight:600">Discount Dish Coverage — 7-Day Trend</div><div class="sparkline">';
 for(var i=0;i<tr.length;i++){var ht=Math.round((tr[i].discountCoverage-55)/(70-55)*30);if(ht<2)ht=2;html+='<div class="sparkline-bar" style="height:'+ht+'px" title="'+tr[i].date+': '+tr[i].discountCoverage+'%"></div>';}
 html+='</div>';
 html+='</div>';
@@ -187,13 +183,13 @@ html+='</div>';
 
 // Open shops trend
 html+='<div class="two-col">';
-html+='<div class="card"><div class="card-title">🏪 营业商家趋势 Open Shops</div><div class="chart-container"><div class="chart-bar-group">';
+html+='<div class="card"><div class="card-title">🏪 Active Shops — Last 7 Days</div><div class="chart-container"><div class="chart-bar-group">';
 var maxS=0;for(var i=0;i<tr.length;i++){if(tr[i].openShops>maxS)maxS=tr[i].openShops}
 for(var i=0;i<tr.length;i++){var t=tr[i];var ht=Math.round(t.openShops/maxS*130);html+='<div class="chart-bar-wrapper"><div class="chart-val">'+t.openShops+'</div><div class="chart-bar green" style="height:'+ht+'px"></div><div class="chart-label">'+t.date+'</div></div>';}
 html+='</div></div></div>';
 
 // Timeline
-html+='<div class="card"><div class="card-title">📡 实时动态 Activity Log</div><div class="timeline">';
+html+='<div class="card"><div class="card-title">📡 Activity Log</div><div class="timeline">';
 for(var i=0;i<log.length;i++){var l=log[i];html+='<div class="timeline-item'+(l.type==='warn'?' warning':'')+'"><span class="timeline-time">'+l.time+'</span><span class="timeline-source">'+l.agent+'</span><span>'+l.msg+'</span></div>';}
 html+='</div></div>';
 html+='</div>';
@@ -201,25 +197,24 @@ html+='</section>';
 
 // ===== SECTION: COMPETITION =====
 html+='<section id="sec-competition">';
-html+='<div class="card"><div class="card-title">🏆 竞赛排行榜 Competition Leaderboard</div><p style="font-size:12px;color:var(--muted);margin-bottom:12px">达标线: 个人≥50分 | 团队人均≥45分 | Sprint窗口: '+comp.sprintDays+' | <strong style="color:var(--green)">FD Ipiranga 人均12.2</strong> | <strong style="color:var(--red)">FC Liberdade 人均2.4</strong></p><table class="data-table"><thead><tr><th>#</th><th>BD</th><th>团队</th><th>District</th><th>总分</th><th>新签分</th><th>Recall分</th><th>合作商户</th><th>差距</th><th>状态</th></tr></thead><tbody>';
-// Sort by earned desc
+html+='<div class="card"><div class="card-title">🏆 Competition Leaderboard</div><p style="font-size:12px;color:var(--muted);margin-bottom:12px">Target: Individual ≥50 pts | Team avg ≥45 pts/BD | Sprint: '+comp.sprintDays+' | <strong style="color:var(--green)">FD Ipiranga avg 12.2 pts</strong> | <strong style="color:var(--red)">FC Liberdade avg 2.4 pts</strong></p><table class="data-table"><thead><tr><th>#</th><th>BD</th><th>Team</th><th>District</th><th>Total Pts</th><th>New Sign Pts</th><th>Recall Pts</th><th>Cooperating</th><th>Gap</th><th>Status</th></tr></thead><tbody>';
 var sorted=bds.slice().sort(function(a,b){return b.earned-a.earned||b.potential-a.potential});
 for(var i=0;i<sorted.length;i++){
 var b=sorted[i];var gap=b.earned-50;var cls=b.earned>=20?'green':b.earned>=5?'yellow':'red';
-var stText=b.earned>=20?'达标线上':b.earned>=5?'需加速':'危急';
+var stText=b.earned>=20?'On Track':b.earned>=5?'Needs Push':'Critical';
 html+='<tr class="row-'+cls+'"><td><strong>'+(i+1)+'</strong></td><td><strong>'+b.name+'</strong></td><td><span class="member-team-badge '+(b.team==='FD'?'badge-fd':'badge-fc')+'">'+b.team+'</span></td><td>'+(b.district||'-')+'</td><td><strong>'+b.earned+'</strong></td><td>'+(b.newsignPts||0)+'</td><td>'+(b.recallPts||0)+'</td><td>'+(b.cooperating||0)+'</td><td>'+gap+'</td><td><span class="status-badge '+cls+'">'+stText+'</span></td></tr>';
 }
 html+='</tbody></table></div>';
 
 // Key merchants
-html+='<div class="card"><div class="card-title">🏪 关键商户追踪 Key Merchants (高分值)</div><table class="data-table"><thead><tr><th>商户名</th><th>分值</th><th>负责BD</th><th>当前动作</th><th>风险</th></tr></thead><tbody>';
-for(var i=0;i<km.length;i++){var m=km[i];html+='<tr><td><strong>'+m.name+'</strong></td><td><strong>'+m.points+'</strong></td><td>'+m.bd+'</td><td>'+m.action+'</td><td><span class="risk-high">'+m.risk+'</span></td></tr>';}
+html+='<div class="card"><div class="card-title">🏪 Key Merchants Tracker (High-Value)</div><table class="data-table"><thead><tr><th>Merchant</th><th>Points</th><th>BD Owner</th><th>Action Required</th><th>Risk</th></tr></thead><tbody>';
+for(var i=0;i<km.length;i++){var m=km[i];html+='<tr><td><strong>'+m.name+'</strong></td><td><strong>'+m.points+'</strong></td><td>'+m.bd+'</td><td>'+m.action+'</td><td><span class="'+(m.risk==='critical'?'risk-extreme':'risk-high')+'">'+m.risk+'</span></td></tr>';}
 html+='</tbody></table></div>';
 html+='</section>';
 
 // ===== SECTION: TEAM BD Detail =====
 html+='<section id="sec-team">';
-html+='<div class="card"><div class="card-title">👥 BD 详细数据 Team Performance (May 1-20)</div><table class="data-table"><thead><tr><th>BD</th><th>团队</th><th>营业商家</th><th>交易商家</th><th>交易率</th><th>月订单</th><th>日均单</th><th>新签</th><th>竞赛得分</th></tr></thead><tbody>';
+html+='<div class="card"><div class="card-title">👥 Team Performance — May 1–20</div><table class="data-table"><thead><tr><th>BD</th><th>Team</th><th>Active Shops</th><th>Txn Shops</th><th>Txn Rate</th><th>Orders MTD</th><th>Daily Avg</th><th>New Signs</th><th>Comp. Score</th></tr></thead><tbody>';
 for(var i=0;i<sorted.length;i++){
 var b=sorted[i];var txnRate=Math.round(b.txnShops/b.shops*100);var dailyOrd=Math.round(b.orders/20);
 html+='<tr><td><strong>'+b.name+'</strong></td><td><span class="member-team-badge '+(b.team==='FD'?'badge-fd':'badge-fc')+'">'+b.team+'</span></td><td>'+b.shops+'</td><td>'+b.txnShops+'</td><td>'+txnRate+'%</td><td>'+b.orders.toLocaleString()+'</td><td>'+dailyOrd+'</td><td>'+b.newSigns+'</td><td><strong>'+b.earned+'</strong></td></tr>';
@@ -227,32 +222,31 @@ html+='<tr><td><strong>'+b.name+'</strong></td><td><span class="member-team-badg
 html+='</tbody></table></div>';
 
 // Team member cards
-html+='<div class="card"><div class="card-title">👥 团队成员卡片 Member Cards</div>';
+html+='<div class="card"><div class="card-title">👥 Member Cards</div>';
 var fdTeam=bds.filter(function(b){return b.team==='FD'});
 var fcTeam=bds.filter(function(b){return b.team==='FC'});
 
-html+='<div class="team-section"><div class="team-section-title">FD Team ('+fdTeam.length+' BDs)</div><div class="team-grid">';
+html+='<div class="team-section"><div class="team-section-title">FD Team — Ipiranga ('+fdTeam.length+' BDs)</div><div class="team-grid">';
 for(var i=0;i<fdTeam.length;i++){var m=fdTeam[i];var pct=Math.min(m.earned/50*100,100);var c=pct>=40?'green':pct>=14?'yellow':'red';
-html+='<div class="member-card"><div class="member-avatar" style="background:'+getGrad(m.name)+'">'+m.name.charAt(0)+'</div><div class="member-name">'+m.name+'</div><span class="member-team-badge badge-fd">FD</span><div class="member-score">得分 '+m.earned+' / 潜在 '+m.potential+'</div><div class="member-detail">商家 '+m.shops+' | 订单 '+Math.round(m.orders/1000)+'k</div><div class="progress-bar"><div class="progress-fill '+c+'" style="width:'+pct+'%"></div></div><div class="member-status" style="color:var(--'+c+')">'+(pct>=40?'达标':'需加速')+'</div></div>';}
+html+='<div class="member-card"><div class="member-avatar" style="background:'+getGrad(m.name)+'">'+m.name.charAt(0)+'</div><div class="member-name">'+m.name+'</div><span class="member-team-badge badge-fd">FD</span><div class="member-score">Score '+m.earned+' / Potential '+m.potential+'</div><div class="member-detail">Shops '+m.shops+' | Orders '+Math.round(m.orders/1000)+'k</div><div class="progress-bar"><div class="progress-fill '+c+'" style="width:'+pct+'%"></div></div><div class="member-status" style="color:var(--'+c+')">'+(pct>=40?'On Track':'Needs Push')+'</div></div>';}
 html+='</div></div>';
 
-html+='<div class="team-section"><div class="team-section-title fc">FC Team ('+fcTeam.length+' BDs)</div><div class="team-grid">';
+html+='<div class="team-section"><div class="team-section-title fc">FC Team — Liberdade ('+fcTeam.length+' BDs)</div><div class="team-grid">';
 for(var i=0;i<fcTeam.length;i++){var m=fcTeam[i];var pct=Math.min(m.earned/50*100,100);var c=pct>=40?'green':pct>=14?'yellow':'red';
-html+='<div class="member-card"><div class="member-avatar" style="background:'+getGrad(m.name)+'">'+m.name.charAt(0)+'</div><div class="member-name">'+m.name+'</div><span class="member-team-badge badge-fc">FC</span><div class="member-score">得分 '+m.earned+' / 潜在 '+m.potential+'</div><div class="member-detail">商家 '+m.shops+' | 订单 '+Math.round(m.orders/1000)+'k</div><div class="progress-bar"><div class="progress-fill '+c+'" style="width:'+pct+'%"></div></div><div class="member-status" style="color:var(--'+c+')">'+(pct>=40?'达标':'需加速')+'</div></div>';}
+html+='<div class="member-card"><div class="member-avatar" style="background:'+getGrad(m.name)+'">'+m.name.charAt(0)+'</div><div class="member-name">'+m.name+'</div><span class="member-team-badge badge-fc">FC</span><div class="member-score">Score '+m.earned+' / Potential '+m.potential+'</div><div class="member-detail">Shops '+m.shops+' | Orders '+Math.round(m.orders/1000)+'k</div><div class="progress-bar"><div class="progress-fill '+c+'" style="width:'+pct+'%"></div></div><div class="member-status" style="color:var(--'+c+')">'+(pct>=40?'On Track':'Needs Push')+'</div></div>';}
 html+='</div></div>';
 html+='</div>';
 html+='</section>';
 
 // ===== SECTION: PROMO =====
 html+='<section id="sec-promo">';
-html+='<div class="card"><div class="card-title">💰 折扣菜覆盖率分析 Discount Coverage</div>';
+html+='<div class="card"><div class="card-title">💰 Discount Coverage Analysis</div>';
 html+='<div class="three-col">';
-html+='<div class="stat-card"><div class="stat-label">折扣菜覆盖率</div><div class="stat-value green">'+ov.discountProductCoverage+'</div><div class="stat-sub">目标 ≥70%</div></div>';
-html+='<div class="stat-card"><div class="stat-label">满折覆盖率</div><div class="stat-value yellow">'+ov.fullDiscountCoverage+'</div><div class="stat-sub">目标 ≥40%</div></div>';
-html+='<div class="stat-card"><div class="stat-label">累计新签</div><div class="stat-value blue">'+h.accNewShops+'</div><div class="stat-sub">历史累计签约</div></div>';
+html+='<div class="stat-card"><div class="stat-label">Discount Dish Coverage</div><div class="stat-value green">'+ov.discountProductCoverage+'</div><div class="stat-sub">Target ≥70%</div></div>';
+html+='<div class="stat-card"><div class="stat-label">Full Discount Coverage</div><div class="stat-value yellow">'+ov.fullDiscountCoverage+'</div><div class="stat-sub">Target ≥40%</div></div>';
+html+='<div class="stat-card"><div class="stat-label">Cumulative New Signs</div><div class="stat-value blue">'+h.accNewShops+'</div><div class="stat-sub">All-time signed merchants</div></div>';
 html+='</div>';
-// 7-day trend table
-html+='<table class="data-table"><thead><tr><th>日期</th><th>营业商家</th><th>交易商家</th><th>订单量</th><th>折扣菜覆盖率</th><th>满折覆盖率</th></tr></thead><tbody>';
+html+='<table class="data-table"><thead><tr><th>Date</th><th>Active Shops</th><th>Txn Shops</th><th>Orders</th><th>Discount Dish %</th><th>Full Discount %</th></tr></thead><tbody>';
 for(var i=0;i<tr.length;i++){var t=tr[i];html+='<tr><td>'+t.date+'</td><td>'+t.openShops+'</td><td>'+t.txnShops+'</td><td>'+t.orders.toLocaleString()+'</td><td><strong>'+t.discountCoverage+'%</strong></td><td>'+t.fullDiscCoverage+'%</td></tr>';}
 html+='</tbody></table>';
 html+='</div>';
@@ -260,14 +254,14 @@ html+='</section>';
 
 // ===== SECTION: TASKS =====
 html+='<section id="sec-tasks">';
-html+='<div class="card"><div class="card-title">🎯 优先任务 Priority Tasks</div><ul class="task-list">';
+html+='<div class="card"><div class="card-title">🎯 Priority Tasks</div><ul class="task-list">';
 for(var i=0;i<tasks.length;i++){var tk=tasks[i];var isP1=tk.priority==='P1';
 html+='<li class="task-item'+(isP1?' yellow':'')+'"><div><span class="task-priority">'+tk.priority+'</span> <strong>'+tk.name+'</strong> <span class="task-status '+tk.status+'">'+tk.status+'</span></div><div class="task-assignee">→ '+tk.agent+'</div></li>';}
 html+='</ul></div>';
 html+='</section>';
 
 // Footer
-html+='<div style="text-align:center;padding:20px;font-size:11px;color:rgba(139,172,200,0.4)">Keeta BD Command Center v2.0 · Updated: '+D.updated+' · Source: kdata API (Dataset 60041382)</div>';
+html+='<div style="text-align:center;padding:20px;font-size:11px;color:rgba(139,172,200,0.4)">Keeta BD Command Center v2.2 · Updated: '+D.updated+' · Source: kdata API (Dataset 60041382)</div>';
 
 app.innerHTML=html;
 }

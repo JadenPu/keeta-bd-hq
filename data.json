@@ -71,11 +71,11 @@
     {"name": "Hong Bin", "points": 12, "bd": "Fernando", "action": "Push to Online", "risk": "high"}
   ],
   "log": [
-    {"time": "02:50", "agent": "System", "type": "ok", "msg": "Dashboard全量数据更新 — kdata API接入成功"},
-    {"time": "02:20", "agent": "System", "type": "ok", "msg": "BD级别数据拉取完成，11位BD全覆盖"},
-    {"time": "22:00", "agent": "BDM", "type": "ok", "msg": "Planos de ação individuais enviados para todos os 10 BDs"},
-    {"time": "18:00", "agent": "Fernando", "type": "warn", "msg": "Spoleto com apenas 1.8h de operação"},
-    {"time": "14:00", "agent": "Fabio", "type": "ok", "msg": "Restaurante Amorim atingiu 15h ✓"}
+    {"time": "02:50", "agent": "System", "type": "ok", "msg": "Dashboard full update — kdata API connected successfully"},
+    {"time": "02:20", "agent": "System", "type": "ok", "msg": "BD-level data pulled — all 11 BDs covered"},
+    {"time": "22:00", "agent": "BDM", "type": "ok", "msg": "Individual action plans sent to all 10 BDs"},
+    {"time": "18:00", "agent": "Fernando", "type": "warn", "msg": "Spoleto — only 1.8h operation time logged"},
+    {"time": "14:00", "agent": "Fabio", "type": "ok", "msg": "Restaurante Amorim reached 15h ✓"}
   ],
   "tasks": [
     {"id": "T-001", "name": "Spoleto: Garantir 15h operação 25-31", "agent": "Fernando", "status": "critical", "priority": "P0"},
