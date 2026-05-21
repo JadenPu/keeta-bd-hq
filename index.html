@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Keeta BD Command Center</title>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<!-- v2.2-en-20260522 -->
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{--blue:#00d4ff;--red:#FF5252;--yellow:#FFD740;--green:#00E676;--bg:#0a0e1a;--card:#111827;--text:#e8f4ff;--muted:#8bacc8;--sidebar-w:200px}
@@ -264,6 +268,19 @@ html+='</section>';
 html+='<div style="text-align:center;padding:20px;font-size:11px;color:rgba(139,172,200,0.4)">Keeta BD Command Center v2.2 · Updated: '+D.updated+' · Source: kdata API (Dataset 60041382)</div>';
 
 app.innerHTML=html;
+
+// ===== SIDEBAR NAVIGATION =====
+document.querySelectorAll('.sidebar-nav a').forEach(function(link){
+  link.addEventListener('click',function(){
+    document.querySelectorAll('.sidebar-nav a').forEach(function(l){l.classList.remove('active')});
+    link.classList.add('active');
+    var sec=link.getAttribute('data-section');
+    var target=document.getElementById('sec-'+sec);
+    if(target){
+      target.scrollIntoView({behavior:'smooth',block:'start'});
+    }
+  });
+});
 }
 </script>
 </body>
