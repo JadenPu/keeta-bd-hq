@@ -1,0 +1,46 @@
+{
+  "updated": "2026-05-21T22:00:00Z",
+  "competition": {
+    "endDate": "2026-05-31",
+    "threshold": 50,
+    "teamAvgThreshold": 45
+  },
+  "hud": {
+    "totalPointsEarned": 73,
+    "merchantsActive": 82,
+    "teamAvgPoints": 7.3,
+    "daysLeft": 10
+  },
+  "bds": [
+    {"name": "Fernando Balbo", "team": "FD", "earned": 20, "potential": 64, "status": "on-track"},
+    {"name": "Fabio Carlos", "team": "FD", "earned": 20, "potential": 49, "status": "at-risk"},
+    {"name": "Carlos Aguiar", "team": "FD", "earned": 7, "potential": 49, "status": "at-risk"},
+    {"name": "Vitor Silva", "team": "FC", "earned": 7, "potential": 77, "status": "at-risk"},
+    {"name": "Edmilson Miranda", "team": "FD", "earned": 7, "potential": 32, "status": "critical"},
+    {"name": "Tadeu Alves", "team": "FD", "earned": 7, "potential": 53, "status": "at-risk"},
+    {"name": "Gabriel Fernandes", "team": "FC", "earned": 5, "potential": 36, "status": "critical"},
+    {"name": "Crystiano Oliveira", "team": "FC", "earned": 0, "potential": 73, "status": "critical"},
+    {"name": "Geovana Batista", "team": "FC", "earned": 0, "potential": 58, "status": "critical"},
+    {"name": "Leonardo Lopes", "team": "FC", "earned": 0, "potential": 87, "status": "critical"}
+  ],
+  "keyMerchants": [
+    {"name": "Lanches Mansour", "points": 29, "bd": "Leonardo", "action": "Push to Online", "risk": "high"},
+    {"name": "Spoleto", "points": 15, "bd": "Fernando", "action": "15h Operation", "risk": "critical"},
+    {"name": "Hot holl prime sushi", "points": 14, "bd": "Vitor", "action": "Push to Online", "risk": "high"},
+    {"name": "Raful Cozinha Árabe", "points": 14, "bd": "Crystiano", "action": "Push to Online", "risk": "high"},
+    {"name": "Hong Bin", "points": 12, "bd": "Fernando", "action": "Push to Online", "risk": "high"}
+  ],
+  "log": [
+    {"time": "22:00", "agent": "BDM", "type": "ok", "msg": "Planos de ação individuais enviados para todos os 10 BDs"},
+    {"time": "21:30", "agent": "System", "type": "ok", "msg": "Dashboard atualizado com dados 05/20"},
+    {"time": "18:00", "agent": "Fernando", "type": "warn", "msg": "Spoleto com apenas 1.8h de operação"},
+    {"time": "14:00", "agent": "Fabio", "type": "ok", "msg": "Restaurante Amorim atingiu 15h ✓"}
+  ],
+  "tasks": [
+    {"id": "T-001", "name": "Spoleto: Garantir 15h operação 25-31", "agent": "Fernando", "status": "critical", "priority": "P0"},
+    {"id": "T-002", "name": "Lanches Mansour: Destravar onboarding", "agent": "Leonardo", "status": "blocked", "priority": "P0"},
+    {"id": "T-003", "name": "Hong Bin: Push to Online", "agent": "Fernando", "status": "pending", "priority": "P1"},
+    {"id": "T-004", "name": "FC Team: Gerar primeiros pedidos", "agent": "BDM", "status": "running", "priority": "P1"},
+    {"id": "T-005", "name": "Hot holl: Ativar onboarding", "agent": "Vitor", "status": "pending", "priority": "P1"}
+  ]
+}

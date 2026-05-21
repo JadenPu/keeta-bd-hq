@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keeta BD 指挥中心</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#00d4ff;--red:#FF5252;--yellow:#FFD740;--green:#00E676;--bg:#0a0e1a;--card:#111827;--text:#e8f4ff;--muted:#8bacc8;--sidebar-w:200px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+.sidebar{position:fixed;left:0;top:0;width:var(--sidebar-w);height:100vh;background:linear-gradient(180deg,#0d1321,#0a0e1a);border-right:1px solid rgba(0,212,255,0.12);display:flex;flex-direction:column;z-index:100;padding:20px 0}
+.sidebar-logo{padding:0 16px 20px;border-bottom:1px solid rgba(0,212,255,0.1);margin-bottom:16px}
+.sidebar-logo h2{font-size:16px;font-weight:900;color:var(--blue);display:flex;align-items:center;gap:8px}
+.sidebar-nav{flex:1;padding:0 12px}
+.sidebar-nav a{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;color:var(--muted);text-decoration:none;font-size:13px;font-weight:600;transition:all 0.2s;margin-bottom:4px}
+.sidebar-nav a:hover,.sidebar-nav a.active{background:rgba(0,212,255,0.08);color:var(--blue)}
+.sidebar-cron{padding:12px 16px;border-top:1px solid rgba(0,212,255,0.1);margin-top:auto}
+.sidebar-cron h4{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.cron-item{font-size:11px;color:var(--muted);padding:4px 0;display:flex;align-items:center;gap:6px}
+.cron-item .dot{width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0}
+.sidebar-footer{padding:12px 16px;border-top:1px solid rgba(0,212,255,0.1);font-size:11px;color:rgba(139,172,200,0.5);text-align:center}
+.main{margin-left:var(--sidebar-w);padding:24px 32px;min-height:100vh}
+.header{margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid rgba(0,212,255,0.1)}
+.header h1{font-size:28px;font-weight:900;margin-bottom:4px}
+.header h1 span{color:var(--blue)}
+.header-sub{font-size:12px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px}
+.header-info{font-size:13px;color:var(--muted)}
+.card{background:var(--card);border-radius:16px;border:1.5px solid rgba(0,212,255,0.18);padding:20px;margin-bottom:20px}
+.card-title{font-size:14px;font-weight:700;color:var(--blue);margin-bottom:16px;text-transform:uppercase;letter-spacing:1px}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:20px}
+.stat-card{background:var(--card);border-radius:16px;border:1.5px solid rgba(0,212,255,0.18);padding:20px;text-align:center}
+.stat-label{font-size:12px;color:var(--muted);margin-bottom:8px;font-weight:600}
+.stat-value{font-size:36px;font-weight:900;color:var(--blue);animation:glow 2s ease-in-out infinite alternate}
+.stat-value.red{color:var(--red);animation:pulse-red 1.5s ease-in-out infinite alternate}
+@keyframes glow{from{text-shadow:0 0 5px rgba(0,212,255,0.3)}to{text-shadow:0 0 20px rgba(0,212,255,0.6),0 0 40px rgba(0,212,255,0.2)}}
+@keyframes pulse-red{from{text-shadow:0 0 5px rgba(255,82,82,0.3)}to{text-shadow:0 0 20px rgba(255,82,82,0.6),0 0 40px rgba(255,82,82,0.2)}}
+.two-col{display:grid;grid-template-columns:60% 40%;gap:16px;margin-bottom:20px}
+.timeline{position:relative;padding-left:24px}
+.timeline::before{content:'';position:absolute;left:8px;top:4px;bottom:4px;width:2px;background:rgba(0,212,255,0.15)}
+.timeline-item{position:relative;padding:8px 0;font-size:12px;line-height:1.5}
+.timeline-item::before{content:'';position:absolute;left:-20px;top:14px;width:10px;height:10px;border-radius:50%;background:var(--green);border:2px solid var(--bg)}
+.timeline-item.warning::before{background:var(--yellow)}
+.timeline-time{color:var(--muted);font-weight:700;margin-right:6px}
+.timeline-source{color:var(--blue);font-weight:700;margin-right:6px}
+.task-list{list-style:none}
+.task-item{padding:10px 12px;border-radius:8px;margin-bottom:8px;font-size:12px;border-left:3px solid var(--red);background:rgba(255,82,82,0.05)}
+.task-item.yellow{border-left-color:var(--yellow);background:rgba(255,215,64,0.05)}
+.task-priority{font-weight:900;margin-right:4px}
+.task-assignee{color:var(--muted);font-size:11px;margin-top:2px}
+.task-status{display:inline-block;font-size:10px;padding:2px 6px;border-radius:4px;font-weight:700;margin-left:6px}
+.task-status.critical{background:rgba(255,82,82,0.2);color:var(--red)}
+.task-status.blocked{background:rgba(255,82,82,0.2);color:var(--red)}
+.task-status.pending{background:rgba(255,215,64,0.2);color:var(--yellow)}
+.task-status.running{background:rgba(0,230,118,0.2);color:var(--green)}
+.data-table{width:100%;border-collapse:collapse;font-size:13px}
+.data-table th{text-align:left;padding:10px 12px;color:var(--muted);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;border-bottom:1px solid rgba(0,212,255,0.1)}
+.data-table td{padding:10px 12px;border-bottom:1px solid rgba(0,212,255,0.05)}
+.data-table tr:hover{background:rgba(0,212,255,0.03)}
+.data-table tr:nth-child(even){background:rgba(0,212,255,0.02)}
+.row-green{background:rgba(0,230,118,0.06)!important}
+.row-yellow{background:rgba(255,215,64,0.06)!important}
+.row-red{background:rgba(255,82,82,0.06)!important}
+.status-badge{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px}
+.status-badge.green{background:rgba(0,230,118,0.15);color:var(--green)}
+.status-badge.yellow{background:rgba(255,215,64,0.15);color:var(--yellow)}
+.status-badge.red{background:rgba(255,82,82,0.15);color:var(--red)}
+.team-section{margin-bottom:24px}
+.team-section-title{font-size:14px;font-weight:800;margin-bottom:12px;padding-left:12px;border-left:3px solid var(--green)}
+.team-section-title.fc{border-left-color:var(--blue)}
+.team-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.member-card{background:var(--card);border-radius:16px;border:1.5px solid rgba(0,212,255,0.12);padding:16px;text-align:center;transition:transform 0.2s,box-shadow 0.2s}
+.member-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,212,255,0.12)}
+.member-avatar{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:900;color:#fff;margin:0 auto 10px}
+.member-name{font-size:12px;font-weight:800;margin-bottom:4px}
+.member-team-badge{display:inline-block;font-size:10px;font-weight:800;padding:2px 8px;border-radius:4px;margin-bottom:6px}
+.badge-fd{background:rgba(0,230,118,0.15);color:var(--green)}
+.badge-fc{background:rgba(0,212,255,0.15);color:var(--blue)}
+.member-score{font-size:11px;color:var(--muted);margin-bottom:8px}
+.progress-bar{width:100%;height:8px;border-radius:4px;background:rgba(255,255,255,0.05);overflow:hidden;margin-bottom:6px}
+.progress-fill{height:100%;border-radius:4px;transition:width 0.6s ease}
+.progress-fill.green{background:linear-gradient(90deg,#00E676,#69F0AE)}
+.progress-fill.yellow{background:linear-gradient(90deg,#FFD740,#FFAB40)}
+.progress-fill.red{background:linear-gradient(90deg,#FF5252,#FF8A80)}
+.member-status{font-size:10px;font-weight:700}
+.risk-high{color:var(--red);font-weight:800}
+.risk-extreme{color:var(--red);font-weight:900}
+.risk-medium{color:var(--yellow);font-weight:800}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:rgba(0,212,255,0.2);border-radius:3px}
+</style>
+</head>
+<body>
+<aside class="sidebar">
+<div class="sidebar-logo"><h2>🚀 Keeta BD HQ</h2></div>
+<nav class="sidebar-nav">
+<a href="#" class="active">📊 数据看板</a>
+<a href="#">👥 团队</a>
+<a href="#">🏆 竞赛</a>
+<a href="#">📋 任务</a>
+</nav>
+<div class="sidebar-cron">
+<h4>定时任务</h4>
+<div class="cron-item"><span class="dot"></span> Daily Report 09:00 BRT</div>
+<div class="cron-item"><span class="dot"></span> Competition Check 18:00 BRT</div>
+</div>
+<div class="sidebar-footer">v1.0.0</div>
+</aside>
+<main class="main" id="app"></main>
+<script>
+(function(){
+var D={stats:[{label:"竞赛总积分",value:"73",red:false},{label:"活跃商户",value:"82",red:false},{label:"团队人均",value:"7.3",red:true},{label:"距离截止",value:"10天",red:false}],timeline:[{time:"22:00",src:"BDM",txt:"✅ 已向全部10名BD发送个人行动计划",warn:false},{time:"21:30",src:"System",txt:"✅ Dashboard数据更新至5/20",warn:false},{time:"18:00",src:"Fernando",txt:"⚠️ Spoleto仅1.8h营业时长",warn:true},{time:"14:00",src:"Fabio",txt:"✅ Restaurante Amorim达到15h",warn:false}],tasks:[{p:"P0",e:"🔴",n:"Spoleto",a:"确保25-31日15h营业",who:"Fernando",s:"critical"},{p:"P0",e:"🔴",n:"Lanches Mansour",a:"解除上线阻碍",who:"Leonardo",s:"blocked"},{p:"P1",e:"🟡",n:"Hong Bin",a:"Push to Online",who:"Fernando",s:"pending"},{p:"P1",e:"🟡",n:"FC团队",a:"催生首单",who:"BDM",s:"running"},{p:"P1",e:"🟡",n:"Hot holl",a:"激活上线",who:"Vitor",s:"pending"}],lb:[{r:1,name:"Fernando Balbo",tm:"FD",earned:20,pot:64,gap:-30,st:"有望达标",c:"green"},{r:2,name:"Fabio Carlos",tm:"FD",earned:20,pot:49,gap:-30,st:"风险",c:"yellow"},{r:3,name:"Carlos Aguiar",tm:"FD",earned:7,pot:49,gap:-43,st:"风险",c:"yellow"},{r:4,name:"Vitor Silva",tm:"FC",earned:7,pot:77,gap:-43,st:"风险",c:"yellow"},{r:5,name:"Edmilson Miranda",tm:"FD",earned:7,pot:32,gap:-43,st:"数学不可能",c:"red"},{r:6,name:"Tadeu Alves",tm:"FD",earned:7,pot:53,gap:-43,st:"风险",c:"yellow"},{r:7,name:"Gabriel Fernandes",tm:"FC",earned:5,pot:36,gap:-45,st:"数学不可能",c:"red"},{r:8,name:"Crystiano Oliveira",tm:"FC",earned:0,pot:73,gap:-50,st:"危急",c:"red"},{r:9,name:"Geovana Batista",tm:"FC",earned:0,pot:58,gap:-50,st:"危急",c:"red"},{r:10,name:"Leonardo Lopes",tm:"FC",earned:0,pot:87,gap:-50,st:"危急",c:"red"}],fd:[{name:"Carlos Aguiar",e:7,p:49},{name:"Fabio Carlos",e:20,p:49},{name:"Edmilson Miranda",e:7,p:32},{name:"Fernando Balbo",e:20,p:64},{name:"Tadeu Alves",e:7,p:53}],fc:[{name:"Gabriel Fernandes",e:5,p:36},{name:"Vitor Silva",e:7,p:77},{name:"Crystiano Oliveira",e:0,p:73},{name:"Leonardo Lopes",e:0,p:87},{name:"Geovana Batista",e:0,p:58}],merchants:[{name:"Lanches Mansour",pts:29,bd:"Leonardo",act:"Push to Online",risk:"🔴高",cls:"risk-high"},{name:"Spoleto",pts:15,bd:"Fernando",act:"15h营业保障",risk:"🔴极高",cls:"risk-extreme"},{name:"Hot holl prime sushi",pts:14,bd:"Vitor",act:"Push to Online",risk:"🔴高",cls:"risk-high"},{name:"Raful Cozinha Árabe",pts:14,bd:"Crystiano",act:"Push to Online",risk:"🔴高",cls:"risk-high"},{name:"Restaurante Hong Bin",pts:12,bd:"Fernando",act:"Push to Online",risk:"🟡中",cls:"risk-medium"}]};
+
+var gradients=['linear-gradient(135deg,#667eea,#764ba2)','linear-gradient(135deg,#f093fb,#f5576c)','linear-gradient(135deg,#4facfe,#00f2fe)','linear-gradient(135deg,#43e97b,#38f9d7)','linear-gradient(135deg,#fa709a,#fee140)','linear-gradient(135deg,#a18cd1,#fbc2eb)','linear-gradient(135deg,#fccb90,#d57eeb)','linear-gradient(135deg,#e0c3fc,#8ec5fc)','linear-gradient(135deg,#f5576c,#ff6f91)','linear-gradient(135deg,#96fbc4,#f9f586)'];
+
+function getGrad(name){var h=0;for(var i=0;i<name.length;i++){h=name.charCodeAt(i)+((h<<5)-h);}return gradients[Math.abs(h)%gradients.length];}
+
+function progColor(e){var pct=e/50*100;if(pct>60)return'green';if(pct>=20)return'yellow';return'red';}
+
+function statusTxt(e){var pct=e/50*100;if(pct>60)return'有望达标';if(pct>=20)return'风险';return'危急';}
+
+var html='';
+
+// Header
+html+='<div class="header"><div class="header-sub">BD TEAM COMMAND CENTER</div><h1><span>Keeta BD</span> 指挥中心</h1><div class="header-info">所属者：Jaden</div></div>';
+
+// Stats
+html+='<div class="stats-grid">';
+for(var i=0;i<D.stats.length;i++){var s=D.stats[i];html+='<div class="stat-card"><div class="stat-label">'+s.label+'</div><div class="stat-value'+(s.red?' red':'')+'">'+s.value+'</div></div>';}
+html+='</div>';
+
+// Two col
+html+='<div class="two-col">';
+// Timeline
+html+='<div class="card"><div class="card-title">📡 实时动态 / Process HUD</div><div class="timeline">';
+for(var i=0;i<D.timeline.length;i++){var t=D.timeline[i];html+='<div class="timeline-item'+(t.warn?' warning':'')+'"><span class="timeline-time">'+t.time+'</span><span class="timeline-source">'+t.src+'</span><span>'+t.txt+'</span></div>';}
+html+='</div></div>';
+// Tasks
+html+='<div class="card"><div class="card-title">🎯 优先任务 / Task HUD</div><ul class="task-list">';
+for(var i=0;i<D.tasks.length;i++){var tk=D.tasks[i];var isY=tk.p==='P1';html+='<li class="task-item'+(isY?' yellow':'')+'"><div><span class="task-priority">'+tk.p+' '+tk.e+'</span><strong>'+tk.n+':</strong> '+tk.a+' <span class="task-status '+tk.s+'">'+tk.s+'</span></div><div class="task-assignee">'+tk.who+'</div></li>';}
+html+='</ul></div>';
+html+='</div>';
+
+// Leaderboard
+var emojis={green:"🟢",yellow:"🟡",red:"🔴"};
+html+='<div class="card"><div class="card-title">🏆 竞赛排行榜 / Competition Leaderboard</div><table class="data-table"><thead><tr><th>排名</th><th>姓名</th><th>团队</th><th>已得分</th><th>潜在分</th><th>差距(距50)</th><th>状态</th></tr></thead><tbody>';
+for(var i=0;i<D.lb.length;i++){var r=D.lb[i];html+='<tr class="row-'+r.c+'"><td><strong>'+r.r+'</strong></td><td>'+r.name+'</td><td><span class="member-team-badge '+(r.tm==='FD'?'badge-fd':'badge-fc')+'">'+r.tm+'</span></td><td><strong>'+r.earned+'</strong></td><td>'+r.pot+'</td><td>'+r.gap+'</td><td><span class="status-badge '+r.c+'">'+emojis[r.c]+' '+r.st+'</span></td></tr>';}
+html+='</tbody></table></div>';
+
+// Team Members
+html+='<div class="card"><div class="card-title">👥 团队成员 / Team Members</div>';
+// FD
+html+='<div class="team-section"><div class="team-section-title">FD Team</div><div class="team-grid">';
+for(var i=0;i<D.fd.length;i++){var m=D.fd[i];var pct=Math.min(m.e/50*100,100);var c=progColor(m.e);var st=statusTxt(m.e);html+='<div class="member-card"><div class="member-avatar" style="background:'+getGrad(m.name)+'">'+m.name.charAt(0)+'</div><div class="member-name">'+m.name+'</div><span class="member-team-badge badge-fd">FD</span><div class="member-score">已得'+m.e+' / 潜在'+m.p+'</div><div class="progress-bar"><div class="progress-fill '+c+'" style="width:'+pct+'%"></div></div><div class="member-status" style="color:var(--'+c+')">'+st+'</div></div>';}
+html+='</div></div>';
+// FC
+html+='<div class="team-section"><div class="team-section-title fc">FC Team</div><div class="team-grid">';
+for(var i=0;i<D.fc.length;i++){var m=D.fc[i];var pct=Math.min(m.e/50*100,100);var c=progColor(m.e);var st=statusTxt(m.e);html+='<div class="member-card"><div class="member-avatar" style="background:'+getGrad(m.name)+'">'+m.name.charAt(0)+'</div><div class="member-name">'+m.name+'</div><span class="member-team-badge badge-fc">FC</span><div class="member-score">已得'+m.e+' / 潜在'+m.p+'</div><div class="progress-bar"><div class="progress-fill '+c+'" style="width:'+pct+'%"></div></div><div class="member-status" style="color:var(--'+c+')">'+st+'</div></div>';}
+html+='</div></div>';
+html+='</div>';
+
+// Merchants
+html+='<div class="card"><div class="card-title">🏪 关键商户追踪 / Key Merchant Tracking</div><table class="data-table"><thead><tr><th>商户名</th><th>分值</th><th>负责BD</th><th>当前动作</th><th>风险等级</th></tr></thead><tbody>';
+for(var i=0;i<D.merchants.length;i++){var mc=D.merchants[i];html+='<tr><td><strong>'+mc.name+'</strong></td><td>'+mc.pts+'</td><td>'+mc.bd+'</td><td>'+mc.act+'</td><td><span class="'+mc.cls+'">'+mc.risk+'</span></td></tr>';}
+html+='</tbody></table></div>';
+
+document.getElementById('app').innerHTML=html;
+})();
+</script>
+</body>
+</html>
