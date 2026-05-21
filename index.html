@@ -201,13 +201,13 @@ html+='</section>';
 
 // ===== SECTION: COMPETITION =====
 html+='<section id="sec-competition">';
-html+='<div class="card"><div class="card-title">🏆 竞赛排行榜 Competition Leaderboard</div><p style="font-size:12px;color:var(--muted);margin-bottom:12px">达标线: 个人≥50分 | 团队人均≥45分 | Sprint窗口: '+comp.sprintDays+'</p><table class="data-table"><thead><tr><th>#</th><th>BD</th><th>团队</th><th>已得分</th><th>潜在分</th><th>差距</th><th>营业商家</th><th>月订单</th><th>新签</th><th>状态</th></tr></thead><tbody>';
+html+='<div class="card"><div class="card-title">🏆 竞赛排行榜 Competition Leaderboard</div><p style="font-size:12px;color:var(--muted);margin-bottom:12px">达标线: 个人≥50分 | 团队人均≥45分 | Sprint窗口: '+comp.sprintDays+' | <strong style="color:var(--green)">FD Ipiranga 人均12.2</strong> | <strong style="color:var(--red)">FC Liberdade 人均2.4</strong></p><table class="data-table"><thead><tr><th>#</th><th>BD</th><th>团队</th><th>District</th><th>总分</th><th>新签分</th><th>Recall分</th><th>合作商户</th><th>差距</th><th>状态</th></tr></thead><tbody>';
 // Sort by earned desc
 var sorted=bds.slice().sort(function(a,b){return b.earned-a.earned||b.potential-a.potential});
 for(var i=0;i<sorted.length;i++){
-var b=sorted[i];var gap=b.earned-50;var cls=b.earned>=20?b.earned>=40?'green':'yellow':'red';
-var stText=b.earned>=40?'有望达标':b.earned>=10?'需加速':'危急';
-html+='<tr class="row-'+cls+'"><td><strong>'+(i+1)+'</strong></td><td><strong>'+b.name+'</strong></td><td><span class="member-team-badge '+(b.team==='FD'?'badge-fd':'badge-fc')+'">'+b.team+'</span></td><td><strong>'+b.earned+'</strong></td><td>'+b.potential+'</td><td>'+gap+'</td><td>'+b.shops+'</td><td>'+b.orders.toLocaleString()+'</td><td>'+b.newSigns+'</td><td><span class="status-badge '+cls+'">'+stText+'</span></td></tr>';
+var b=sorted[i];var gap=b.earned-50;var cls=b.earned>=20?'green':b.earned>=5?'yellow':'red';
+var stText=b.earned>=20?'达标线上':b.earned>=5?'需加速':'危急';
+html+='<tr class="row-'+cls+'"><td><strong>'+(i+1)+'</strong></td><td><strong>'+b.name+'</strong></td><td><span class="member-team-badge '+(b.team==='FD'?'badge-fd':'badge-fc')+'">'+b.team+'</span></td><td>'+(b.district||'-')+'</td><td><strong>'+b.earned+'</strong></td><td>'+(b.newsignPts||0)+'</td><td>'+(b.recallPts||0)+'</td><td>'+(b.cooperating||0)+'</td><td>'+gap+'</td><td><span class="status-badge '+cls+'">'+stText+'</span></td></tr>';
 }
 html+='</tbody></table></div>';
 

@@ -20,7 +20,11 @@
     "fullDiscountCoverage": "31.94%",
     "teamAvgPoints": 7.3,
     "daysLeft": 9,
-    "accNewShops": 982
+    "accNewShops": 982,
+    "fdTeamPoints": 61,
+    "fcTeamPoints": 12,
+    "fdAvgPoints": 12.2,
+    "fcAvgPoints": 2.4
   },
   "overview": {
     "date": "2026-05-20",
@@ -47,17 +51,17 @@
     {"date": "05/20", "openShops": 620, "txnShops": 413, "orders": 3921, "discountCoverage": 63.06, "fullDiscCoverage": 31.94}
   ],
   "bds": [
-    {"name": "Carlos Aguiar", "team": "FD", "shops": 71, "txnShops": 60, "orders": 11591, "newSigns": 2, "earned": 7, "potential": 49, "status": "at-risk"},
-    {"name": "Fabio Carlos", "team": "FD", "shops": 71, "txnShops": 63, "orders": 9089, "newSigns": 3, "earned": 20, "potential": 49, "status": "on-track"},
-    {"name": "Edmilson Miranda", "team": "FD", "shops": 49, "txnShops": 46, "orders": 3951, "newSigns": 0, "earned": 7, "potential": 32, "status": "critical"},
-    {"name": "Fernando Balbo", "team": "FD", "shops": 67, "txnShops": 59, "orders": 6412, "newSigns": 3, "earned": 20, "potential": 64, "status": "on-track"},
-    {"name": "Tadeu Alves", "team": "FD", "shops": 63, "txnShops": 52, "orders": 8331, "newSigns": 0, "earned": 7, "potential": 53, "status": "at-risk"},
-    {"name": "Marcos Ferreira", "team": "FD", "shops": 56, "txnShops": 51, "orders": 8433, "newSigns": 0, "earned": 0, "potential": 30, "status": "critical"},
-    {"name": "Gabriel Fernandes", "team": "FC", "shops": 71, "txnShops": 64, "orders": 7214, "newSigns": 1, "earned": 5, "potential": 36, "status": "critical"},
-    {"name": "Vitor Silva", "team": "FC", "shops": 76, "txnShops": 66, "orders": 5575, "newSigns": 2, "earned": 7, "potential": 77, "status": "at-risk"},
-    {"name": "Crystiano Oliveira", "team": "FC", "shops": 74, "txnShops": 57, "orders": 8589, "newSigns": 0, "earned": 0, "potential": 73, "status": "critical"},
-    {"name": "Leonardo Lopes", "team": "FC", "shops": 61, "txnShops": 49, "orders": 8035, "newSigns": 0, "earned": 0, "potential": 87, "status": "critical"},
-    {"name": "Geovana Batista", "team": "FC", "shops": 69, "txnShops": 54, "orders": 6373, "newSigns": 0, "earned": 0, "potential": 58, "status": "critical"}
+    {"name": "Carlos Aguiar", "team": "FD", "district": "Ipiranga", "shops": 71, "txnShops": 60, "orders": 11591, "newSigns": 2, "cooperating": 5, "earned": 7, "newsignPts": 7, "recallPts": 0, "potential": 49, "status": "at-risk"},
+    {"name": "Fabio Carlos", "team": "FD", "district": "Ipiranga", "shops": 71, "txnShops": 63, "orders": 9089, "newSigns": 3, "cooperating": 6, "earned": 20, "newsignPts": 15, "recallPts": 5, "potential": 49, "status": "on-track"},
+    {"name": "Edmilson Miranda", "team": "FD", "district": "Ipiranga", "shops": 49, "txnShops": 46, "orders": 3951, "newSigns": 0, "cooperating": 5, "earned": 7, "newsignPts": 0, "recallPts": 7, "potential": 32, "status": "critical"},
+    {"name": "Fernando Balbo", "team": "FD", "district": "Ipiranga", "shops": 67, "txnShops": 59, "orders": 6412, "newSigns": 3, "cooperating": 4, "earned": 20, "newsignPts": 15, "recallPts": 5, "potential": 64, "status": "on-track"},
+    {"name": "Tadeu Alves", "team": "FD", "district": "Ipiranga", "shops": 63, "txnShops": 52, "orders": 8331, "newSigns": 0, "cooperating": 6, "earned": 7, "newsignPts": 0, "recallPts": 7, "potential": 53, "status": "at-risk"},
+    {"name": "Marcos Ferreira", "team": "FD", "district": "Ipiranga", "shops": 56, "txnShops": 51, "orders": 8433, "newSigns": 0, "cooperating": 0, "earned": 0, "newsignPts": 0, "recallPts": 0, "potential": 30, "status": "critical"},
+    {"name": "Gabriel Fernandes", "team": "FC", "district": "Liberdade", "shops": 71, "txnShops": 64, "orders": 7214, "newSigns": 1, "cooperating": 3, "earned": 5, "newsignPts": 0, "recallPts": 5, "potential": 36, "status": "critical"},
+    {"name": "Vitor Silva", "team": "FC", "district": "Liberdade", "shops": 76, "txnShops": 66, "orders": 5575, "newSigns": 2, "cooperating": 10, "earned": 7, "newsignPts": 0, "recallPts": 7, "potential": 77, "status": "at-risk"},
+    {"name": "Crystiano Oliveira", "team": "FC", "district": "Liberdade", "shops": 74, "txnShops": 57, "orders": 8589, "newSigns": 0, "cooperating": 7, "earned": 0, "newsignPts": 0, "recallPts": 0, "potential": 73, "status": "critical"},
+    {"name": "Leonardo Lopes", "team": "FC", "district": "Liberdade", "shops": 61, "txnShops": 49, "orders": 8035, "newSigns": 0, "cooperating": 8, "earned": 0, "newsignPts": 0, "recallPts": 0, "potential": 87, "status": "critical"},
+    {"name": "Geovana Batista", "team": "FC", "district": "Liberdade", "shops": 69, "txnShops": 54, "orders": 6373, "newSigns": 0, "cooperating": 9, "earned": 0, "newsignPts": 0, "recallPts": 0, "potential": 58, "status": "critical"}
   ],
   "keyMerchants": [
     {"name": "Lanches Mansour", "points": 29, "bd": "Leonardo", "action": "Push to Online", "risk": "high"},
