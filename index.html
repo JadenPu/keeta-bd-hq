@@ -201,7 +201,7 @@ html+='</section>';
 
 // ===== SECTION: COMPETITION =====
 html+='<section id="sec-competition">';
-html+='<div class="card"><div class="card-title">🏆 Competition Leaderboard</div><p style="font-size:12px;color:var(--muted);margin-bottom:12px">Target: Individual ≥50 pts | Team avg ≥45 pts/BD | Sprint: '+comp.sprintDays+' | <strong style="color:var(--green)">FD Ipiranga avg 12.2 pts</strong> | <strong style="color:var(--red)">FC Liberdade avg 2.4 pts</strong></p><table class="data-table"><thead><tr><th>#</th><th>BD</th><th>Team</th><th>District</th><th>Total Pts</th><th>New Sign Pts</th><th>Recall Pts</th><th>Cooperating</th><th>Gap</th><th>Status</th></tr></thead><tbody>';
+html+='<div class="card"><div class="card-title">🏆 Competition Leaderboard</div><p style="font-size:12px;color:var(--muted);margin-bottom:12px">Target: Individual ≥50 pts | Team avg ≥45 pts/BD | Sprint: '+comp.sprintDays+' | <strong style="color:var(--green)">FD Ipiranga avg 12.2 pts</strong> | <strong style="color:var(--red)">FC Liberdade avg 2.4 pts</strong></p><table class="data-table"><thead><tr><th>#</th><th>BD</th><th>Team</th><th>District</th><th>Total Pts</th><th>New Sign Pts</th><th>Recall Pts</th><th>Coop. Shops</th><th>Gap to 50</th><th>Status</th></tr></thead><tbody>';
 var sorted=bds.slice().sort(function(a,b){return b.earned-a.earned||b.potential-a.potential});
 for(var i=0;i<sorted.length;i++){
 var b=sorted[i];var gap=b.earned-50;var cls=b.earned>=20?'green':b.earned>=5?'yellow':'red';
