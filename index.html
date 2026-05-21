@@ -13,7 +13,7 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-
 .sidebar-logo{padding:0 16px 20px;border-bottom:1px solid rgba(0,212,255,0.1);margin-bottom:16px}
 .sidebar-logo h2{font-size:16px;font-weight:900;color:var(--blue);display:flex;align-items:center;gap:8px}
 .sidebar-nav{flex:1;padding:0 12px}
-.sidebar-nav a{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;color:var(--muted);text-decoration:none;font-size:13px;font-weight:600;transition:all 0.2s;margin-bottom:4px}
+.sidebar-nav a{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;color:var(--muted);text-decoration:none;font-size:13px;font-weight:600;transition:all 0.2s;margin-bottom:4px;cursor:pointer}
 .sidebar-nav a:hover,.sidebar-nav a.active{background:rgba(0,212,255,0.08);color:var(--blue)}
 .sidebar-cron{padding:12px 16px;border-top:1px solid rgba(0,212,255,0.1);margin-top:auto}
 .sidebar-cron h4{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
@@ -26,16 +26,34 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-
 .header h1 span{color:var(--blue)}
 .header-sub{font-size:12px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px}
 .header-info{font-size:13px;color:var(--muted)}
+.header-info .data-badge{display:inline-flex;align-items:center;gap:4px;background:rgba(0,230,118,0.12);color:var(--green);padding:3px 10px;border-radius:6px;font-size:11px;font-weight:700;margin-left:8px}
 .card{background:var(--card);border-radius:16px;border:1.5px solid rgba(0,212,255,0.18);padding:20px;margin-bottom:20px}
-.card-title{font-size:14px;font-weight:700;color:var(--blue);margin-bottom:16px;text-transform:uppercase;letter-spacing:1px}
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:20px}
-.stat-card{background:var(--card);border-radius:16px;border:1.5px solid rgba(0,212,255,0.18);padding:20px;text-align:center}
-.stat-label{font-size:12px;color:var(--muted);margin-bottom:8px;font-weight:600}
-.stat-value{font-size:36px;font-weight:900;color:var(--blue);animation:glow 2s ease-in-out infinite alternate}
-.stat-value.red{color:var(--red);animation:pulse-red 1.5s ease-in-out infinite alternate}
-@keyframes glow{from{text-shadow:0 0 5px rgba(0,212,255,0.3)}to{text-shadow:0 0 20px rgba(0,212,255,0.6),0 0 40px rgba(0,212,255,0.2)}}
-@keyframes pulse-red{from{text-shadow:0 0 5px rgba(255,82,82,0.3)}to{text-shadow:0 0 20px rgba(255,82,82,0.6),0 0 40px rgba(255,82,82,0.2)}}
-.two-col{display:grid;grid-template-columns:60% 40%;gap:16px;margin-bottom:20px}
+.card-title{font-size:14px;font-weight:700;color:var(--blue);margin-bottom:16px;text-transform:uppercase;letter-spacing:1px;display:flex;align-items:center;gap:8px}
+.stats-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-bottom:20px}
+.stat-card{background:var(--card);border-radius:16px;border:1.5px solid rgba(0,212,255,0.18);padding:16px;text-align:center}
+.stat-label{font-size:11px;color:var(--muted);margin-bottom:6px;font-weight:600}
+.stat-value{font-size:28px;font-weight:900;color:var(--blue)}
+.stat-value.red{color:var(--red)}
+.stat-value.green{color:var(--green)}
+.stat-value.yellow{color:var(--yellow)}
+.stat-sub{font-size:10px;color:var(--muted);margin-top:4px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
+.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:20px}
+.chart-container{position:relative;height:180px;margin-top:12px}
+.chart-bar-group{display:flex;align-items:flex-end;justify-content:space-around;height:150px;padding:0 8px}
+.chart-bar-wrapper{display:flex;flex-direction:column;align-items:center;gap:4px;flex:1}
+.chart-bar{width:28px;border-radius:4px 4px 0 0;transition:height 0.4s ease;min-height:2px}
+.chart-bar.blue{background:linear-gradient(180deg,var(--blue),rgba(0,212,255,0.5))}
+.chart-bar.green{background:linear-gradient(180deg,var(--green),rgba(0,230,118,0.5))}
+.chart-bar.yellow{background:linear-gradient(180deg,var(--yellow),rgba(255,215,64,0.5))}
+.chart-label{font-size:10px;color:var(--muted);font-weight:600}
+.chart-val{font-size:10px;color:var(--text);font-weight:700}
+.pct-row{display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid rgba(0,212,255,0.06)}
+.pct-row:last-child{border-bottom:none}
+.pct-label{font-size:12px;color:var(--muted);width:140px;flex-shrink:0}
+.pct-bar-bg{flex:1;height:12px;background:rgba(255,255,255,0.05);border-radius:6px;overflow:hidden}
+.pct-bar-fill{height:100%;border-radius:6px;transition:width 0.6s ease}
+.pct-value{font-size:12px;font-weight:800;width:60px;text-align:right;flex-shrink:0}
 .timeline{position:relative;padding-left:24px}
 .timeline::before{content:'';position:absolute;left:8px;top:4px;bottom:4px;width:2px;background:rgba(0,212,255,0.15)}
 .timeline-item{position:relative;padding:8px 0;font-size:12px;line-height:1.5}
@@ -53,11 +71,10 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-
 .task-status.blocked{background:rgba(255,82,82,0.2);color:var(--red)}
 .task-status.pending{background:rgba(255,215,64,0.2);color:var(--yellow)}
 .task-status.running{background:rgba(0,230,118,0.2);color:var(--green)}
-.data-table{width:100%;border-collapse:collapse;font-size:13px}
+.data-table{width:100%;border-collapse:collapse;font-size:12px}
 .data-table th{text-align:left;padding:10px 12px;color:var(--muted);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;border-bottom:1px solid rgba(0,212,255,0.1)}
 .data-table td{padding:10px 12px;border-bottom:1px solid rgba(0,212,255,0.05)}
 .data-table tr:hover{background:rgba(0,212,255,0.03)}
-.data-table tr:nth-child(even){background:rgba(0,212,255,0.02)}
 .row-green{background:rgba(0,230,118,0.06)!important}
 .row-yellow{background:rgba(255,215,64,0.06)!important}
 .row-red{background:rgba(255,82,82,0.06)!important}
@@ -68,17 +85,18 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-
 .team-section{margin-bottom:24px}
 .team-section-title{font-size:14px;font-weight:800;margin-bottom:12px;padding-left:12px;border-left:3px solid var(--green)}
 .team-section-title.fc{border-left-color:var(--blue)}
-.team-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px}
 .member-card{background:var(--card);border-radius:16px;border:1.5px solid rgba(0,212,255,0.12);padding:16px;text-align:center;transition:transform 0.2s,box-shadow 0.2s}
 .member-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,212,255,0.12)}
-.member-avatar{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:900;color:#fff;margin:0 auto 10px}
-.member-name{font-size:12px;font-weight:800;margin-bottom:4px}
+.member-avatar{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff;margin:0 auto 8px}
+.member-name{font-size:11px;font-weight:800;margin-bottom:3px}
 .member-team-badge{display:inline-block;font-size:10px;font-weight:800;padding:2px 8px;border-radius:4px;margin-bottom:6px}
 .badge-fd{background:rgba(0,230,118,0.15);color:var(--green)}
 .badge-fc{background:rgba(0,212,255,0.15);color:var(--blue)}
-.member-score{font-size:11px;color:var(--muted);margin-bottom:8px}
-.progress-bar{width:100%;height:8px;border-radius:4px;background:rgba(255,255,255,0.05);overflow:hidden;margin-bottom:6px}
-.progress-fill{height:100%;border-radius:4px;transition:width 0.6s ease}
+.member-score{font-size:10px;color:var(--muted);margin-bottom:6px}
+.member-detail{font-size:10px;color:var(--muted);margin-bottom:4px}
+.progress-bar{width:100%;height:6px;border-radius:3px;background:rgba(255,255,255,0.05);overflow:hidden;margin-bottom:4px}
+.progress-fill{height:100%;border-radius:3px;transition:width 0.6s ease}
 .progress-fill.green{background:linear-gradient(90deg,#00E676,#69F0AE)}
 .progress-fill.yellow{background:linear-gradient(90deg,#FFD740,#FFAB40)}
 .progress-fill.red{background:linear-gradient(90deg,#FF5252,#FF8A80)}
@@ -86,87 +104,173 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-
 .risk-high{color:var(--red);font-weight:800}
 .risk-extreme{color:var(--red);font-weight:900}
 .risk-medium{color:var(--yellow);font-weight:800}
+.sparkline{display:flex;align-items:flex-end;gap:2px;height:30px;margin-top:8px}
+.sparkline-bar{flex:1;border-radius:2px 2px 0 0;background:var(--blue);opacity:0.6;transition:height 0.3s}
+.sparkline-bar:last-child{opacity:1}
 ::-webkit-scrollbar{width:6px}
 ::-webkit-scrollbar-track{background:var(--bg)}
 ::-webkit-scrollbar-thumb{background:rgba(0,212,255,0.2);border-radius:3px}
+@media(max-width:1200px){.stats-grid{grid-template-columns:repeat(3,1fr)}.two-col,.three-col{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <aside class="sidebar">
 <div class="sidebar-logo"><h2>🚀 Keeta BD HQ</h2></div>
 <nav class="sidebar-nav">
-<a href="#" class="active">📊 数据看板</a>
-<a href="#">👥 团队</a>
-<a href="#">🏆 竞赛</a>
-<a href="#">📋 任务</a>
+<a class="active" data-section="overview">📊 数据总览</a>
+<a data-section="competition">🏆 竞赛排行</a>
+<a data-section="team">👥 BD 明细</a>
+<a data-section="promo">💰 折扣覆盖</a>
+<a data-section="tasks">📋 优先任务</a>
 </nav>
 <div class="sidebar-cron">
-<h4>定时任务</h4>
-<div class="cron-item"><span class="dot"></span> Daily Report 09:00 BRT</div>
-<div class="cron-item"><span class="dot"></span> Competition Check 18:00 BRT</div>
+<h4>数据来源</h4>
+<div class="cron-item"><span class="dot"></span> kdata API 自动拉取</div>
+<div class="cron-item"><span class="dot"></span> Dataset 60041382</div>
 </div>
-<div class="sidebar-footer">v1.0.0</div>
+<div class="sidebar-footer">v2.0 · Data-Driven</div>
 </aside>
-<main class="main" id="app"></main>
+<main class="main" id="app"><div style="padding:40px;text-align:center;color:var(--muted)">Loading data...</div></main>
 <script>
-(function(){
-var D={stats:[{label:"竞赛总积分",value:"73",red:false},{label:"活跃商户",value:"82",red:false},{label:"团队人均",value:"7.3",red:true},{label:"距离截止",value:"10天",red:false}],timeline:[{time:"22:00",src:"BDM",txt:"✅ 已向全部10名BD发送个人行动计划",warn:false},{time:"21:30",src:"System",txt:"✅ Dashboard数据更新至5/20",warn:false},{time:"18:00",src:"Fernando",txt:"⚠️ Spoleto仅1.8h营业时长",warn:true},{time:"14:00",src:"Fabio",txt:"✅ Restaurante Amorim达到15h",warn:false}],tasks:[{p:"P0",e:"🔴",n:"Spoleto",a:"确保25-31日15h营业",who:"Fernando",s:"critical"},{p:"P0",e:"🔴",n:"Lanches Mansour",a:"解除上线阻碍",who:"Leonardo",s:"blocked"},{p:"P1",e:"🟡",n:"Hong Bin",a:"Push to Online",who:"Fernando",s:"pending"},{p:"P1",e:"🟡",n:"FC团队",a:"催生首单",who:"BDM",s:"running"},{p:"P1",e:"🟡",n:"Hot holl",a:"激活上线",who:"Vitor",s:"pending"}],lb:[{r:1,name:"Fernando Balbo",tm:"FD",earned:20,pot:64,gap:-30,st:"有望达标",c:"green"},{r:2,name:"Fabio Carlos",tm:"FD",earned:20,pot:49,gap:-30,st:"风险",c:"yellow"},{r:3,name:"Carlos Aguiar",tm:"FD",earned:7,pot:49,gap:-43,st:"风险",c:"yellow"},{r:4,name:"Vitor Silva",tm:"FC",earned:7,pot:77,gap:-43,st:"风险",c:"yellow"},{r:5,name:"Edmilson Miranda",tm:"FD",earned:7,pot:32,gap:-43,st:"数学不可能",c:"red"},{r:6,name:"Tadeu Alves",tm:"FD",earned:7,pot:53,gap:-43,st:"风险",c:"yellow"},{r:7,name:"Gabriel Fernandes",tm:"FC",earned:5,pot:36,gap:-45,st:"数学不可能",c:"red"},{r:8,name:"Crystiano Oliveira",tm:"FC",earned:0,pot:73,gap:-50,st:"危急",c:"red"},{r:9,name:"Geovana Batista",tm:"FC",earned:0,pot:58,gap:-50,st:"危急",c:"red"},{r:10,name:"Leonardo Lopes",tm:"FC",earned:0,pot:87,gap:-50,st:"危急",c:"red"}],fd:[{name:"Carlos Aguiar",e:7,p:49},{name:"Fabio Carlos",e:20,p:49},{name:"Edmilson Miranda",e:7,p:32},{name:"Fernando Balbo",e:20,p:64},{name:"Tadeu Alves",e:7,p:53}],fc:[{name:"Gabriel Fernandes",e:5,p:36},{name:"Vitor Silva",e:7,p:77},{name:"Crystiano Oliveira",e:0,p:73},{name:"Leonardo Lopes",e:0,p:87},{name:"Geovana Batista",e:0,p:58}],merchants:[{name:"Lanches Mansour",pts:29,bd:"Leonardo",act:"Push to Online",risk:"🔴高",cls:"risk-high"},{name:"Spoleto",pts:15,bd:"Fernando",act:"15h营业保障",risk:"🔴极高",cls:"risk-extreme"},{name:"Hot holl prime sushi",pts:14,bd:"Vitor",act:"Push to Online",risk:"🔴高",cls:"risk-high"},{name:"Raful Cozinha Árabe",pts:14,bd:"Crystiano",act:"Push to Online",risk:"🔴高",cls:"risk-high"},{name:"Restaurante Hong Bin",pts:12,bd:"Fernando",act:"Push to Online",risk:"🟡中",cls:"risk-medium"}]};
+fetch('data.json').then(r=>r.json()).then(D=>{render(D)}).catch(e=>{document.getElementById('app').innerHTML='<p style="color:var(--red);padding:40px">Failed to load data.json: '+e.message+'</p>'});
 
-var gradients=['linear-gradient(135deg,#667eea,#764ba2)','linear-gradient(135deg,#f093fb,#f5576c)','linear-gradient(135deg,#4facfe,#00f2fe)','linear-gradient(135deg,#43e97b,#38f9d7)','linear-gradient(135deg,#fa709a,#fee140)','linear-gradient(135deg,#a18cd1,#fbc2eb)','linear-gradient(135deg,#fccb90,#d57eeb)','linear-gradient(135deg,#e0c3fc,#8ec5fc)','linear-gradient(135deg,#f5576c,#ff6f91)','linear-gradient(135deg,#96fbc4,#f9f586)'];
+function render(D){
+var app=document.getElementById('app');
+var h=D.hud,ov=D.overview,tr=D.trend,bds=D.bds,km=D.keyMerchants,tasks=D.tasks,log=D.log,comp=D.competition;
 
-function getGrad(name){var h=0;for(var i=0;i<name.length;i++){h=name.charCodeAt(i)+((h<<5)-h);}return gradients[Math.abs(h)%gradients.length];}
-
-function progColor(e){var pct=e/50*100;if(pct>60)return'green';if(pct>=20)return'yellow';return'red';}
-
-function statusTxt(e){var pct=e/50*100;if(pct>60)return'有望达标';if(pct>=20)return'风险';return'危急';}
+var gradients=['linear-gradient(135deg,#667eea,#764ba2)','linear-gradient(135deg,#f093fb,#f5576c)','linear-gradient(135deg,#4facfe,#00f2fe)','linear-gradient(135deg,#43e97b,#38f9d7)','linear-gradient(135deg,#fa709a,#fee140)','linear-gradient(135deg,#a18cd1,#fbc2eb)','linear-gradient(135deg,#fccb90,#d57eeb)','linear-gradient(135deg,#e0c3fc,#8ec5fc)','linear-gradient(135deg,#f5576c,#ff6f91)','linear-gradient(135deg,#96fbc4,#f9f586)','linear-gradient(135deg,#ff9a9e,#fad0c4)'];
+function getGrad(n){var x=0;for(var i=0;i<n.length;i++)x=n.charCodeAt(i)+((x<<5)-x);return gradients[Math.abs(x)%gradients.length]}
 
 var html='';
 
 // Header
-html+='<div class="header"><div class="header-sub">BD TEAM COMMAND CENTER</div><h1><span>Keeta BD</span> 指挥中心</h1><div class="header-info">所属者：Jaden</div></div>';
+html+='<div class="header"><div class="header-sub">BD TEAM COMMAND CENTER</div><h1><span>Keeta BD</span> 指挥中心</h1><div class="header-info">所属者：Jaden <span class="data-badge">🟢 LIVE · 数据截止 '+D.dataDate+'</span></div></div>';
 
-// Stats
+// ===== SECTION: OVERVIEW =====
+html+='<section id="sec-overview">';
+
+// Stats row
 html+='<div class="stats-grid">';
-for(var i=0;i<D.stats.length;i++){var s=D.stats[i];html+='<div class="stat-card"><div class="stat-label">'+s.label+'</div><div class="stat-value'+(s.red?' red':'')+'">'+s.value+'</div></div>';}
+var stats=[
+{l:"竞赛总积分 Points",v:h.totalPointsEarned,c:"blue"},
+{l:"月营业商家 Open Shops",v:ov.monthTotal.openShops.toLocaleString(),c:"blue"},
+{l:"月交易商家 Txn Shops",v:ov.monthTotal.txnShops.toLocaleString(),c:"green"},
+{l:"月订单量 Orders MTD",v:ov.monthTotal.orders.toLocaleString(),c:"green"},
+{l:"折扣菜覆盖率",v:ov.discountProductCoverage,c:"yellow"},
+{l:"距Sprint开始",v:comp.daysLeft+"天",c:comp.daysLeft<=3?"red":"blue"}
+];
+for(var i=0;i<stats.length;i++){var s=stats[i];html+='<div class="stat-card"><div class="stat-label">'+s.l+'</div><div class="stat-value '+s.c+'">'+s.v+'</div></div>';}
 html+='</div>';
 
-// Two col
+// Trend chart + key metrics
 html+='<div class="two-col">';
+
+// Orders trend bar chart
+html+='<div class="card"><div class="card-title">📈 近7日订单趋势 Daily Orders</div><div class="chart-container"><div class="chart-bar-group">';
+var maxOrd=0;for(var i=0;i<tr.length;i++){if(tr[i].orders>maxOrd)maxOrd=tr[i].orders}
+for(var i=0;i<tr.length;i++){var t=tr[i];var ht=Math.round(t.orders/maxOrd*130);html+='<div class="chart-bar-wrapper"><div class="chart-val">'+Math.round(t.orders/1000*10)/10+'k</div><div class="chart-bar blue" style="height:'+ht+'px"></div><div class="chart-label">'+t.date+'</div></div>';}
+html+='</div></div></div>';
+
+// Promo coverage card
+html+='<div class="card"><div class="card-title">💰 营销活动覆盖率 Promo Coverage</div>';
+var pcts=[
+{label:"折扣菜 Discount Dish",val:parseFloat(ov.discountProductCoverage),color:"var(--green)"},
+{label:"满折 Full Discount",val:parseFloat(ov.fullDiscountCoverage),color:"var(--yellow)"}
+];
+for(var i=0;i<pcts.length;i++){var p=pcts[i];html+='<div class="pct-row"><div class="pct-label">'+p.label+'</div><div class="pct-bar-bg"><div class="pct-bar-fill" style="width:'+p.val+'%;background:'+p.color+'"></div></div><div class="pct-value" style="color:'+p.color+'">'+p.val.toFixed(1)+'%</div></div>';}
+// Trend sparkline for discount coverage
+html+='<div style="margin-top:16px;font-size:11px;color:var(--muted);font-weight:600">折扣菜覆盖率趋势 (7日)</div><div class="sparkline">';
+for(var i=0;i<tr.length;i++){var ht=Math.round((tr[i].discountCoverage-55)/(70-55)*30);if(ht<2)ht=2;html+='<div class="sparkline-bar" style="height:'+ht+'px" title="'+tr[i].date+': '+tr[i].discountCoverage+'%"></div>';}
+html+='</div>';
+html+='</div>';
+html+='</div>';
+
+// Open shops trend
+html+='<div class="two-col">';
+html+='<div class="card"><div class="card-title">🏪 营业商家趋势 Open Shops</div><div class="chart-container"><div class="chart-bar-group">';
+var maxS=0;for(var i=0;i<tr.length;i++){if(tr[i].openShops>maxS)maxS=tr[i].openShops}
+for(var i=0;i<tr.length;i++){var t=tr[i];var ht=Math.round(t.openShops/maxS*130);html+='<div class="chart-bar-wrapper"><div class="chart-val">'+t.openShops+'</div><div class="chart-bar green" style="height:'+ht+'px"></div><div class="chart-label">'+t.date+'</div></div>';}
+html+='</div></div></div>';
+
 // Timeline
-html+='<div class="card"><div class="card-title">📡 实时动态 / Process HUD</div><div class="timeline">';
-for(var i=0;i<D.timeline.length;i++){var t=D.timeline[i];html+='<div class="timeline-item'+(t.warn?' warning':'')+'"><span class="timeline-time">'+t.time+'</span><span class="timeline-source">'+t.src+'</span><span>'+t.txt+'</span></div>';}
+html+='<div class="card"><div class="card-title">📡 实时动态 Activity Log</div><div class="timeline">';
+for(var i=0;i<log.length;i++){var l=log[i];html+='<div class="timeline-item'+(l.type==='warn'?' warning':'')+'"><span class="timeline-time">'+l.time+'</span><span class="timeline-source">'+l.agent+'</span><span>'+l.msg+'</span></div>';}
 html+='</div></div>';
-// Tasks
-html+='<div class="card"><div class="card-title">🎯 优先任务 / Task HUD</div><ul class="task-list">';
-for(var i=0;i<D.tasks.length;i++){var tk=D.tasks[i];var isY=tk.p==='P1';html+='<li class="task-item'+(isY?' yellow':'')+'"><div><span class="task-priority">'+tk.p+' '+tk.e+'</span><strong>'+tk.n+':</strong> '+tk.a+' <span class="task-status '+tk.s+'">'+tk.s+'</span></div><div class="task-assignee">'+tk.who+'</div></li>';}
+html+='</div>';
+html+='</section>';
+
+// ===== SECTION: COMPETITION =====
+html+='<section id="sec-competition">';
+html+='<div class="card"><div class="card-title">🏆 竞赛排行榜 Competition Leaderboard</div><p style="font-size:12px;color:var(--muted);margin-bottom:12px">达标线: 个人≥50分 | 团队人均≥45分 | Sprint窗口: '+comp.sprintDays+'</p><table class="data-table"><thead><tr><th>#</th><th>BD</th><th>团队</th><th>已得分</th><th>潜在分</th><th>差距</th><th>营业商家</th><th>月订单</th><th>新签</th><th>状态</th></tr></thead><tbody>';
+// Sort by earned desc
+var sorted=bds.slice().sort(function(a,b){return b.earned-a.earned||b.potential-a.potential});
+for(var i=0;i<sorted.length;i++){
+var b=sorted[i];var gap=b.earned-50;var cls=b.earned>=20?b.earned>=40?'green':'yellow':'red';
+var stText=b.earned>=40?'有望达标':b.earned>=10?'需加速':'危急';
+html+='<tr class="row-'+cls+'"><td><strong>'+(i+1)+'</strong></td><td><strong>'+b.name+'</strong></td><td><span class="member-team-badge '+(b.team==='FD'?'badge-fd':'badge-fc')+'">'+b.team+'</span></td><td><strong>'+b.earned+'</strong></td><td>'+b.potential+'</td><td>'+gap+'</td><td>'+b.shops+'</td><td>'+b.orders.toLocaleString()+'</td><td>'+b.newSigns+'</td><td><span class="status-badge '+cls+'">'+stText+'</span></td></tr>';
+}
+html+='</tbody></table></div>';
+
+// Key merchants
+html+='<div class="card"><div class="card-title">🏪 关键商户追踪 Key Merchants (高分值)</div><table class="data-table"><thead><tr><th>商户名</th><th>分值</th><th>负责BD</th><th>当前动作</th><th>风险</th></tr></thead><tbody>';
+for(var i=0;i<km.length;i++){var m=km[i];html+='<tr><td><strong>'+m.name+'</strong></td><td><strong>'+m.points+'</strong></td><td>'+m.bd+'</td><td>'+m.action+'</td><td><span class="risk-high">'+m.risk+'</span></td></tr>';}
+html+='</tbody></table></div>';
+html+='</section>';
+
+// ===== SECTION: TEAM BD Detail =====
+html+='<section id="sec-team">';
+html+='<div class="card"><div class="card-title">👥 BD 详细数据 Team Performance (May 1-20)</div><table class="data-table"><thead><tr><th>BD</th><th>团队</th><th>营业商家</th><th>交易商家</th><th>交易率</th><th>月订单</th><th>日均单</th><th>新签</th><th>竞赛得分</th></tr></thead><tbody>';
+for(var i=0;i<sorted.length;i++){
+var b=sorted[i];var txnRate=Math.round(b.txnShops/b.shops*100);var dailyOrd=Math.round(b.orders/20);
+html+='<tr><td><strong>'+b.name+'</strong></td><td><span class="member-team-badge '+(b.team==='FD'?'badge-fd':'badge-fc')+'">'+b.team+'</span></td><td>'+b.shops+'</td><td>'+b.txnShops+'</td><td>'+txnRate+'%</td><td>'+b.orders.toLocaleString()+'</td><td>'+dailyOrd+'</td><td>'+b.newSigns+'</td><td><strong>'+b.earned+'</strong></td></tr>';
+}
+html+='</tbody></table></div>';
+
+// Team member cards
+html+='<div class="card"><div class="card-title">👥 团队成员卡片 Member Cards</div>';
+var fdTeam=bds.filter(function(b){return b.team==='FD'});
+var fcTeam=bds.filter(function(b){return b.team==='FC'});
+
+html+='<div class="team-section"><div class="team-section-title">FD Team ('+fdTeam.length+' BDs)</div><div class="team-grid">';
+for(var i=0;i<fdTeam.length;i++){var m=fdTeam[i];var pct=Math.min(m.earned/50*100,100);var c=pct>=40?'green':pct>=14?'yellow':'red';
+html+='<div class="member-card"><div class="member-avatar" style="background:'+getGrad(m.name)+'">'+m.name.charAt(0)+'</div><div class="member-name">'+m.name+'</div><span class="member-team-badge badge-fd">FD</span><div class="member-score">得分 '+m.earned+' / 潜在 '+m.potential+'</div><div class="member-detail">商家 '+m.shops+' | 订单 '+Math.round(m.orders/1000)+'k</div><div class="progress-bar"><div class="progress-fill '+c+'" style="width:'+pct+'%"></div></div><div class="member-status" style="color:var(--'+c+')">'+(pct>=40?'达标':'需加速')+'</div></div>';}
+html+='</div></div>';
+
+html+='<div class="team-section"><div class="team-section-title fc">FC Team ('+fcTeam.length+' BDs)</div><div class="team-grid">';
+for(var i=0;i<fcTeam.length;i++){var m=fcTeam[i];var pct=Math.min(m.earned/50*100,100);var c=pct>=40?'green':pct>=14?'yellow':'red';
+html+='<div class="member-card"><div class="member-avatar" style="background:'+getGrad(m.name)+'">'+m.name.charAt(0)+'</div><div class="member-name">'+m.name+'</div><span class="member-team-badge badge-fc">FC</span><div class="member-score">得分 '+m.earned+' / 潜在 '+m.potential+'</div><div class="member-detail">商家 '+m.shops+' | 订单 '+Math.round(m.orders/1000)+'k</div><div class="progress-bar"><div class="progress-fill '+c+'" style="width:'+pct+'%"></div></div><div class="member-status" style="color:var(--'+c+')">'+(pct>=40?'达标':'需加速')+'</div></div>';}
+html+='</div></div>';
+html+='</div>';
+html+='</section>';
+
+// ===== SECTION: PROMO =====
+html+='<section id="sec-promo">';
+html+='<div class="card"><div class="card-title">💰 折扣菜覆盖率分析 Discount Coverage</div>';
+html+='<div class="three-col">';
+html+='<div class="stat-card"><div class="stat-label">折扣菜覆盖率</div><div class="stat-value green">'+ov.discountProductCoverage+'</div><div class="stat-sub">目标 ≥70%</div></div>';
+html+='<div class="stat-card"><div class="stat-label">满折覆盖率</div><div class="stat-value yellow">'+ov.fullDiscountCoverage+'</div><div class="stat-sub">目标 ≥40%</div></div>';
+html+='<div class="stat-card"><div class="stat-label">累计新签</div><div class="stat-value blue">'+h.accNewShops+'</div><div class="stat-sub">历史累计签约</div></div>';
+html+='</div>';
+// 7-day trend table
+html+='<table class="data-table"><thead><tr><th>日期</th><th>营业商家</th><th>交易商家</th><th>订单量</th><th>折扣菜覆盖率</th><th>满折覆盖率</th></tr></thead><tbody>';
+for(var i=0;i<tr.length;i++){var t=tr[i];html+='<tr><td>'+t.date+'</td><td>'+t.openShops+'</td><td>'+t.txnShops+'</td><td>'+t.orders.toLocaleString()+'</td><td><strong>'+t.discountCoverage+'%</strong></td><td>'+t.fullDiscCoverage+'%</td></tr>';}
+html+='</tbody></table>';
+html+='</div>';
+html+='</section>';
+
+// ===== SECTION: TASKS =====
+html+='<section id="sec-tasks">';
+html+='<div class="card"><div class="card-title">🎯 优先任务 Priority Tasks</div><ul class="task-list">';
+for(var i=0;i<tasks.length;i++){var tk=tasks[i];var isP1=tk.priority==='P1';
+html+='<li class="task-item'+(isP1?' yellow':'')+'"><div><span class="task-priority">'+tk.priority+'</span> <strong>'+tk.name+'</strong> <span class="task-status '+tk.status+'">'+tk.status+'</span></div><div class="task-assignee">→ '+tk.agent+'</div></li>';}
 html+='</ul></div>';
-html+='</div>';
+html+='</section>';
 
-// Leaderboard
-var emojis={green:"🟢",yellow:"🟡",red:"🔴"};
-html+='<div class="card"><div class="card-title">🏆 竞赛排行榜 / Competition Leaderboard</div><table class="data-table"><thead><tr><th>排名</th><th>姓名</th><th>团队</th><th>已得分</th><th>潜在分</th><th>差距(距50)</th><th>状态</th></tr></thead><tbody>';
-for(var i=0;i<D.lb.length;i++){var r=D.lb[i];html+='<tr class="row-'+r.c+'"><td><strong>'+r.r+'</strong></td><td>'+r.name+'</td><td><span class="member-team-badge '+(r.tm==='FD'?'badge-fd':'badge-fc')+'">'+r.tm+'</span></td><td><strong>'+r.earned+'</strong></td><td>'+r.pot+'</td><td>'+r.gap+'</td><td><span class="status-badge '+r.c+'">'+emojis[r.c]+' '+r.st+'</span></td></tr>';}
-html+='</tbody></table></div>';
+// Footer
+html+='<div style="text-align:center;padding:20px;font-size:11px;color:rgba(139,172,200,0.4)">Keeta BD Command Center v2.0 · Updated: '+D.updated+' · Source: kdata API (Dataset 60041382)</div>';
 
-// Team Members
-html+='<div class="card"><div class="card-title">👥 团队成员 / Team Members</div>';
-// FD
-html+='<div class="team-section"><div class="team-section-title">FD Team</div><div class="team-grid">';
-for(var i=0;i<D.fd.length;i++){var m=D.fd[i];var pct=Math.min(m.e/50*100,100);var c=progColor(m.e);var st=statusTxt(m.e);html+='<div class="member-card"><div class="member-avatar" style="background:'+getGrad(m.name)+'">'+m.name.charAt(0)+'</div><div class="member-name">'+m.name+'</div><span class="member-team-badge badge-fd">FD</span><div class="member-score">已得'+m.e+' / 潜在'+m.p+'</div><div class="progress-bar"><div class="progress-fill '+c+'" style="width:'+pct+'%"></div></div><div class="member-status" style="color:var(--'+c+')">'+st+'</div></div>';}
-html+='</div></div>';
-// FC
-html+='<div class="team-section"><div class="team-section-title fc">FC Team</div><div class="team-grid">';
-for(var i=0;i<D.fc.length;i++){var m=D.fc[i];var pct=Math.min(m.e/50*100,100);var c=progColor(m.e);var st=statusTxt(m.e);html+='<div class="member-card"><div class="member-avatar" style="background:'+getGrad(m.name)+'">'+m.name.charAt(0)+'</div><div class="member-name">'+m.name+'</div><span class="member-team-badge badge-fc">FC</span><div class="member-score">已得'+m.e+' / 潜在'+m.p+'</div><div class="progress-bar"><div class="progress-fill '+c+'" style="width:'+pct+'%"></div></div><div class="member-status" style="color:var(--'+c+')">'+st+'</div></div>';}
-html+='</div></div>';
-html+='</div>';
-
-// Merchants
-html+='<div class="card"><div class="card-title">🏪 关键商户追踪 / Key Merchant Tracking</div><table class="data-table"><thead><tr><th>商户名</th><th>分值</th><th>负责BD</th><th>当前动作</th><th>风险等级</th></tr></thead><tbody>';
-for(var i=0;i<D.merchants.length;i++){var mc=D.merchants[i];html+='<tr><td><strong>'+mc.name+'</strong></td><td>'+mc.pts+'</td><td>'+mc.bd+'</td><td>'+mc.act+'</td><td><span class="'+mc.cls+'">'+mc.risk+'</span></td></tr>';}
-html+='</tbody></table></div>';
-
-document.getElementById('app').innerHTML=html;
-})();
+app.innerHTML=html;
+}
 </script>
 </body>
 </html>
