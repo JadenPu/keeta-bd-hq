@@ -1,6 +1,6 @@
 {
-  "updated": "2026-05-22T02:50:00+08:00",
-  "dataDate": "2026-05-20",
+  "updated": "2026-05-22T20:00:27+08:00",
+  "dataDate": "2026-05-21",
   "dataSource": "kdata CLI / Dataset 60041382 (供给大盘)",
   "competition": {
     "endDate": "2026-05-31",
@@ -16,24 +16,24 @@
     "merchantsTrading": 621,
     "totalOrders_MTD": 83593,
     "newSigns_MTD": 11,
-    "discountCoverage": "63.06%",
-    "fullDiscountCoverage": "31.94%",
+    "discountCoverage": "0.00%",
+    "fullDiscountCoverage": "0.00%",
     "teamAvgPoints": 7.3,
     "daysLeft": 9,
-    "accNewShops": 982,
+    "accNewShops": 0,
     "fdTeamPoints": 61,
     "fcTeamPoints": 12,
     "fdAvgPoints": 12.2,
     "fcAvgPoints": 2.4
   },
   "overview": {
-    "date": "2026-05-20",
-    "openShops": 620,
-    "txnShops": 413,
-    "orders": 3921,
+    "date": "2026-05-21",
+    "openShops": 0,
+    "txnShops": 0,
+    "orders": 0,
     "newSigns": 0,
-    "discountProductCoverage": "63.06%",
-    "fullDiscountCoverage": "31.94%",
+    "discountProductCoverage": "0.00%",
+    "fullDiscountCoverage": "0.00%",
     "monthTotal": {
       "openShops": 728,
       "txnShops": 621,
@@ -42,46 +42,334 @@
     }
   },
   "trend": [
-    {"date": "05/14", "openShops": 636, "txnShops": 416, "orders": 3743, "discountCoverage": 61.01, "fullDiscCoverage": 30.97},
-    {"date": "05/15", "openShops": 629, "txnShops": 460, "orders": 6067, "discountCoverage": 61.84, "fullDiscCoverage": 31.32},
-    {"date": "05/16", "openShops": 580, "txnShops": 413, "orders": 5462, "discountCoverage": 62.07, "fullDiscCoverage": 31.55},
-    {"date": "05/17", "openShops": 454, "txnShops": 349, "orders": 5603, "discountCoverage": 63.88, "fullDiscCoverage": 30.40},
-    {"date": "05/18", "openShops": 480, "txnShops": 327, "orders": 3202, "discountCoverage": 63.96, "fullDiscCoverage": 34.38},
-    {"date": "05/19", "openShops": 584, "txnShops": 376, "orders": 3563, "discountCoverage": 63.70, "fullDiscCoverage": 32.53},
-    {"date": "05/20", "openShops": 620, "txnShops": 413, "orders": 3921, "discountCoverage": 63.06, "fullDiscCoverage": 31.94}
+    {
+      "date": "05/14",
+      "openShops": 636,
+      "txnShops": 416,
+      "orders": 3743,
+      "discountCoverage": 61.01,
+      "fullDiscCoverage": 30.97
+    },
+    {
+      "date": "05/15",
+      "openShops": 629,
+      "txnShops": 460,
+      "orders": 6067,
+      "discountCoverage": 61.84,
+      "fullDiscCoverage": 31.32
+    },
+    {
+      "date": "05/16",
+      "openShops": 580,
+      "txnShops": 413,
+      "orders": 5462,
+      "discountCoverage": 62.07,
+      "fullDiscCoverage": 31.55
+    },
+    {
+      "date": "05/17",
+      "openShops": 454,
+      "txnShops": 349,
+      "orders": 5603,
+      "discountCoverage": 63.88,
+      "fullDiscCoverage": 30.4
+    },
+    {
+      "date": "05/18",
+      "openShops": 480,
+      "txnShops": 327,
+      "orders": 3202,
+      "discountCoverage": 63.96,
+      "fullDiscCoverage": 34.38
+    },
+    {
+      "date": "05/19",
+      "openShops": 584,
+      "txnShops": 376,
+      "orders": 3563,
+      "discountCoverage": 63.7,
+      "fullDiscCoverage": 32.53
+    },
+    {
+      "date": "05/20",
+      "openShops": 620,
+      "txnShops": 413,
+      "orders": 3921,
+      "discountCoverage": 63.06,
+      "fullDiscCoverage": 31.94
+    }
   ],
   "bds": [
-    {"name": "Carlos Aguiar", "team": "FD", "district": "Ipiranga", "shops": 71, "txnShops": 60, "orders": 11591, "newSigns": 2, "cooperating": 5, "earned": 7, "newsignPts": 7, "recallPts": 0, "potential": 49, "status": "at-risk"},
-    {"name": "Fabio Carlos", "team": "FD", "district": "Ipiranga", "shops": 71, "txnShops": 63, "orders": 9089, "newSigns": 3, "cooperating": 6, "earned": 20, "newsignPts": 15, "recallPts": 5, "potential": 49, "status": "on-track"},
-    {"name": "Edmilson Miranda", "team": "FD", "district": "Ipiranga", "shops": 49, "txnShops": 46, "orders": 3951, "newSigns": 0, "cooperating": 5, "earned": 7, "newsignPts": 0, "recallPts": 7, "potential": 32, "status": "critical"},
-    {"name": "Fernando Balbo", "team": "FD", "district": "Ipiranga", "shops": 67, "txnShops": 59, "orders": 6412, "newSigns": 3, "cooperating": 4, "earned": 20, "newsignPts": 15, "recallPts": 5, "potential": 64, "status": "on-track"},
-    {"name": "Tadeu Alves", "team": "FD", "district": "Ipiranga", "shops": 63, "txnShops": 52, "orders": 8331, "newSigns": 0, "cooperating": 6, "earned": 7, "newsignPts": 0, "recallPts": 7, "potential": 53, "status": "at-risk"},
-    {"name": "Marcos Ferreira", "team": "FD", "district": "Ipiranga", "shops": 56, "txnShops": 51, "orders": 8433, "newSigns": 0, "cooperating": 0, "earned": 0, "newsignPts": 0, "recallPts": 0, "potential": 30, "status": "critical"},
-    {"name": "Gabriel Fernandes", "team": "FC", "district": "Liberdade", "shops": 71, "txnShops": 64, "orders": 7214, "newSigns": 1, "cooperating": 3, "earned": 5, "newsignPts": 0, "recallPts": 5, "potential": 36, "status": "critical"},
-    {"name": "Vitor Silva", "team": "FC", "district": "Liberdade", "shops": 76, "txnShops": 66, "orders": 5575, "newSigns": 2, "cooperating": 10, "earned": 7, "newsignPts": 0, "recallPts": 7, "potential": 77, "status": "at-risk"},
-    {"name": "Crystiano Oliveira", "team": "FC", "district": "Liberdade", "shops": 74, "txnShops": 57, "orders": 8589, "newSigns": 0, "cooperating": 7, "earned": 0, "newsignPts": 0, "recallPts": 0, "potential": 73, "status": "critical"},
-    {"name": "Leonardo Lopes", "team": "FC", "district": "Liberdade", "shops": 61, "txnShops": 49, "orders": 8035, "newSigns": 0, "cooperating": 8, "earned": 0, "newsignPts": 0, "recallPts": 0, "potential": 87, "status": "critical"},
-    {"name": "Geovana Batista", "team": "FC", "district": "Liberdade", "shops": 69, "txnShops": 54, "orders": 6373, "newSigns": 0, "cooperating": 9, "earned": 0, "newsignPts": 0, "recallPts": 0, "potential": 58, "status": "critical"}
+    {
+      "name": "Carlos Aguiar",
+      "team": "FD",
+      "district": "Ipiranga",
+      "shops": 71,
+      "txnShops": 60,
+      "orders": 11591,
+      "newSigns": 2,
+      "cooperating": 5,
+      "earned": 7,
+      "newsignPts": 7,
+      "recallPts": 0,
+      "potential": 49,
+      "status": "at-risk"
+    },
+    {
+      "name": "Fabio Carlos",
+      "team": "FD",
+      "district": "Ipiranga",
+      "shops": 71,
+      "txnShops": 63,
+      "orders": 9089,
+      "newSigns": 3,
+      "cooperating": 6,
+      "earned": 20,
+      "newsignPts": 15,
+      "recallPts": 5,
+      "potential": 49,
+      "status": "on-track"
+    },
+    {
+      "name": "Edmilson Miranda",
+      "team": "FD",
+      "district": "Ipiranga",
+      "shops": 49,
+      "txnShops": 46,
+      "orders": 3951,
+      "newSigns": 0,
+      "cooperating": 5,
+      "earned": 7,
+      "newsignPts": 0,
+      "recallPts": 7,
+      "potential": 32,
+      "status": "critical"
+    },
+    {
+      "name": "Fernando Balbo",
+      "team": "FD",
+      "district": "Ipiranga",
+      "shops": 67,
+      "txnShops": 59,
+      "orders": 6412,
+      "newSigns": 3,
+      "cooperating": 4,
+      "earned": 20,
+      "newsignPts": 15,
+      "recallPts": 5,
+      "potential": 64,
+      "status": "on-track"
+    },
+    {
+      "name": "Tadeu Alves",
+      "team": "FD",
+      "district": "Ipiranga",
+      "shops": 63,
+      "txnShops": 52,
+      "orders": 8331,
+      "newSigns": 0,
+      "cooperating": 6,
+      "earned": 7,
+      "newsignPts": 0,
+      "recallPts": 7,
+      "potential": 53,
+      "status": "at-risk"
+    },
+    {
+      "name": "Marcos Ferreira",
+      "team": "FD",
+      "district": "Ipiranga",
+      "shops": 56,
+      "txnShops": 51,
+      "orders": 8433,
+      "newSigns": 0,
+      "cooperating": 0,
+      "earned": 0,
+      "newsignPts": 0,
+      "recallPts": 0,
+      "potential": 30,
+      "status": "critical"
+    },
+    {
+      "name": "Gabriel Fernandes",
+      "team": "FC",
+      "district": "Liberdade",
+      "shops": 71,
+      "txnShops": 64,
+      "orders": 7214,
+      "newSigns": 1,
+      "cooperating": 3,
+      "earned": 5,
+      "newsignPts": 0,
+      "recallPts": 5,
+      "potential": 36,
+      "status": "critical"
+    },
+    {
+      "name": "Vitor Silva",
+      "team": "FC",
+      "district": "Liberdade",
+      "shops": 76,
+      "txnShops": 66,
+      "orders": 5575,
+      "newSigns": 2,
+      "cooperating": 10,
+      "earned": 7,
+      "newsignPts": 0,
+      "recallPts": 7,
+      "potential": 77,
+      "status": "at-risk"
+    },
+    {
+      "name": "Crystiano Oliveira",
+      "team": "FC",
+      "district": "Liberdade",
+      "shops": 74,
+      "txnShops": 57,
+      "orders": 8589,
+      "newSigns": 0,
+      "cooperating": 7,
+      "earned": 0,
+      "newsignPts": 0,
+      "recallPts": 0,
+      "potential": 73,
+      "status": "critical"
+    },
+    {
+      "name": "Leonardo Lopes",
+      "team": "FC",
+      "district": "Liberdade",
+      "shops": 61,
+      "txnShops": 49,
+      "orders": 8035,
+      "newSigns": 0,
+      "cooperating": 8,
+      "earned": 0,
+      "newsignPts": 0,
+      "recallPts": 0,
+      "potential": 87,
+      "status": "critical"
+    },
+    {
+      "name": "Geovana Batista",
+      "team": "FC",
+      "district": "Liberdade",
+      "shops": 69,
+      "txnShops": 54,
+      "orders": 6373,
+      "newSigns": 0,
+      "cooperating": 9,
+      "earned": 0,
+      "newsignPts": 0,
+      "recallPts": 0,
+      "potential": 58,
+      "status": "critical"
+    }
   ],
   "keyMerchants": [
-    {"name": "Lanches Mansour", "points": 29, "bd": "Leonardo", "action": "Push to Online", "risk": "high"},
-    {"name": "Spoleto", "points": 15, "bd": "Fernando", "action": "15h Operation", "risk": "critical"},
-    {"name": "Hot holl prime sushi", "points": 14, "bd": "Vitor", "action": "Push to Online", "risk": "high"},
-    {"name": "Raful Cozinha Árabe", "points": 14, "bd": "Crystiano", "action": "Push to Online", "risk": "high"},
-    {"name": "Hong Bin", "points": 12, "bd": "Fernando", "action": "Push to Online", "risk": "high"}
+    {
+      "name": "Lanches Mansour",
+      "points": 29,
+      "bd": "Leonardo",
+      "action": "Push to Online",
+      "risk": "high"
+    },
+    {
+      "name": "Spoleto",
+      "points": 15,
+      "bd": "Fernando",
+      "action": "15h Operation",
+      "risk": "critical"
+    },
+    {
+      "name": "Hot holl prime sushi",
+      "points": 14,
+      "bd": "Vitor",
+      "action": "Push to Online",
+      "risk": "high"
+    },
+    {
+      "name": "Raful Cozinha Árabe",
+      "points": 14,
+      "bd": "Crystiano",
+      "action": "Push to Online",
+      "risk": "high"
+    },
+    {
+      "name": "Hong Bin",
+      "points": 12,
+      "bd": "Fernando",
+      "action": "Push to Online",
+      "risk": "high"
+    }
   ],
   "log": [
-    {"time": "02:50", "agent": "System", "type": "ok", "msg": "Dashboard full update — kdata API connected successfully"},
-    {"time": "02:20", "agent": "System", "type": "ok", "msg": "BD-level data pulled — all 11 BDs covered"},
-    {"time": "22:00", "agent": "BDM", "type": "ok", "msg": "Individual action plans sent to all 10 BDs"},
-    {"time": "18:00", "agent": "Fernando", "type": "warn", "msg": "Spoleto — only 1.8h operation time logged"},
-    {"time": "14:00", "agent": "Fabio", "type": "ok", "msg": "Restaurante Amorim reached 15h ✓"}
+    {
+      "time": "20:00",
+      "agent": "System",
+      "type": "ok",
+      "msg": "Auto-update completed — data as of 2026-05-21"
+    },
+    {
+      "time": "02:50",
+      "agent": "System",
+      "type": "ok",
+      "msg": "Dashboard full update — kdata API connected successfully"
+    },
+    {
+      "time": "02:20",
+      "agent": "System",
+      "type": "ok",
+      "msg": "BD-level data pulled — all 11 BDs covered"
+    },
+    {
+      "time": "22:00",
+      "agent": "BDM",
+      "type": "ok",
+      "msg": "Individual action plans sent to all 10 BDs"
+    },
+    {
+      "time": "18:00",
+      "agent": "Fernando",
+      "type": "warn",
+      "msg": "Spoleto — only 1.8h operation time logged"
+    }
   ],
   "tasks": [
-    {"id": "T-001", "name": "Spoleto: Garantir 15h operação 25-31", "agent": "Fernando", "status": "critical", "priority": "P0"},
-    {"id": "T-002", "name": "Lanches Mansour: Destravar onboarding", "agent": "Leonardo", "status": "blocked", "priority": "P0"},
-    {"id": "T-003", "name": "Hong Bin: Push to Online", "agent": "Fernando", "status": "pending", "priority": "P1"},
-    {"id": "T-004", "name": "FC Team: Gerar primeiros pedidos", "agent": "BDM", "status": "running", "priority": "P1"},
-    {"id": "T-005", "name": "Hot holl: Ativar onboarding", "agent": "Vitor", "status": "pending", "priority": "P1"}
+    {
+      "id": "T-001",
+      "name": "Spoleto: Garantir 15h operação 25-31",
+      "agent": "Fernando",
+      "status": "critical",
+      "priority": "P0"
+    },
+    {
+      "id": "T-002",
+      "name": "Lanches Mansour: Destravar onboarding",
+      "agent": "Leonardo",
+      "status": "blocked",
+      "priority": "P0"
+    },
+    {
+      "id": "T-003",
+      "name": "Hong Bin: Push to Online",
+      "agent": "Fernando",
+      "status": "pending",
+      "priority": "P1"
+    },
+    {
+      "id": "T-004",
+      "name": "FC Team: Gerar primeiros pedidos",
+      "agent": "BDM",
+      "status": "running",
+      "priority": "P1"
+    },
+    {
+      "id": "T-005",
+      "name": "Hot holl: Ativar onboarding",
+      "agent": "Vitor",
+      "status": "pending",
+      "priority": "P1"
+    }
   ]
 }
