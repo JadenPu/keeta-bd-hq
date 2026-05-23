@@ -1,6 +1,6 @@
 {
-  "updated": "2026-05-22T20:00:27+08:00",
-  "dataDate": "2026-05-21",
+  "updated": "2026-05-23T20:00:26+08:00",
+  "dataDate": "2026-05-22",
   "dataSource": "kdata CLI / Dataset 60041382 (供给大盘)",
   "competition": {
     "endDate": "2026-05-31",
@@ -27,7 +27,7 @@
     "fcAvgPoints": 2.4
   },
   "overview": {
-    "date": "2026-05-21",
+    "date": "2026-05-22",
     "openShops": 0,
     "txnShops": 0,
     "orders": 0,
@@ -308,6 +308,12 @@
       "time": "20:00",
       "agent": "System",
       "type": "ok",
+      "msg": "Auto-update completed — data as of 2026-05-22"
+    },
+    {
+      "time": "20:00",
+      "agent": "System",
+      "type": "ok",
       "msg": "Auto-update completed — data as of 2026-05-21"
     },
     {
@@ -327,12 +333,6 @@
       "agent": "BDM",
       "type": "ok",
       "msg": "Individual action plans sent to all 10 BDs"
-    },
-    {
-      "time": "18:00",
-      "agent": "Fernando",
-      "type": "warn",
-      "msg": "Spoleto — only 1.8h operation time logged"
     }
   ],
   "tasks": [
