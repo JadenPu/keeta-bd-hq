@@ -113,7 +113,12 @@
       "newsignPts": 7,
       "recallPts": 0,
       "potential": 49,
-      "status": "at-risk"
+      "status": "at-risk",
+      "followUp": [
+        {"merchant": "Padaria São Jorge", "points": 8, "status": "跟进中", "lastAction": "Menu Upload", "risk": "medium", "lastVisit": "2026-05-21"},
+        {"merchant": "Açaí da Vila", "points": 6, "status": "待跟进", "lastAction": "Contract Pending", "risk": "high", "lastVisit": "2026-05-18"},
+        {"merchant": "Burger Town SP", "points": 5, "status": "已完成", "lastAction": "Online Confirmed", "risk": "low", "lastVisit": "2026-05-22"}
+      ]
     },
     {
       "name": "Fabio Carlos",
@@ -128,7 +133,12 @@
       "newsignPts": 15,
       "recallPts": 5,
       "potential": 49,
-      "status": "on-track"
+      "status": "on-track",
+      "followUp": [
+        {"merchant": "Restaurante Mineiro", "points": 10, "status": "跟进中", "lastAction": "Discount Setup", "risk": "medium", "lastVisit": "2026-05-22"},
+        {"merchant": "Sushi Express", "points": 7, "status": "已完成", "lastAction": "Full Launch", "risk": "low", "lastVisit": "2026-05-20"},
+        {"merchant": "Cantina Bella", "points": 5, "status": "待跟进", "lastAction": "Awaiting Docs", "risk": "high", "lastVisit": "2026-05-17"}
+      ]
     },
     {
       "name": "Edmilson Miranda",
@@ -143,7 +153,11 @@
       "newsignPts": 0,
       "recallPts": 7,
       "potential": 32,
-      "status": "critical"
+      "status": "critical",
+      "followUp": [
+        {"merchant": "Pizza da Praça", "points": 4, "status": "待跟进", "lastAction": "Initial Contact", "risk": "high", "lastVisit": "2026-05-15"},
+        {"merchant": "Churrascaria Gaúcha", "points": 6, "status": "跟进中", "lastAction": "Photo Shoot", "risk": "medium", "lastVisit": "2026-05-20"}
+      ]
     },
     {
       "name": "Fernando Balbo",
@@ -158,7 +172,12 @@
       "newsignPts": 15,
       "recallPts": 5,
       "potential": 64,
-      "status": "on-track"
+      "status": "on-track",
+      "followUp": [
+        {"merchant": "Spoleto", "points": 15, "status": "跟进中", "lastAction": "15h Operation", "risk": "critical", "lastVisit": "2026-05-22"},
+        {"merchant": "Hong Bin", "points": 12, "status": "待跟进", "lastAction": "Push to Online", "risk": "high", "lastVisit": "2026-05-19"},
+        {"merchant": "Lanchonete Central", "points": 5, "status": "已完成", "lastAction": "Promo Activated", "risk": "low", "lastVisit": "2026-05-21"}
+      ]
     },
     {
       "name": "Tadeu Alves",
@@ -173,7 +192,11 @@
       "newsignPts": 0,
       "recallPts": 7,
       "potential": 53,
-      "status": "at-risk"
+      "status": "at-risk",
+      "followUp": [
+        {"merchant": "Café do Mercado", "points": 7, "status": "跟进中", "lastAction": "Recall Visit", "risk": "medium", "lastVisit": "2026-05-21"},
+        {"merchant": "Sorveteria Glacial", "points": 4, "status": "待跟进", "lastAction": "No Response", "risk": "high", "lastVisit": "2026-05-16"}
+      ]
     },
     {
       "name": "Marcos Ferreira",
@@ -188,7 +211,11 @@
       "newsignPts": 0,
       "recallPts": 0,
       "potential": 30,
-      "status": "critical"
+      "status": "critical",
+      "followUp": [
+        {"merchant": "Pastelaria do Bairro", "points": 3, "status": "待跟进", "lastAction": "Initial Outreach", "risk": "high", "lastVisit": "2026-05-14"},
+        {"merchant": "Doceria Mel", "points": 2, "status": "待跟进", "lastAction": "Left Message", "risk": "critical", "lastVisit": "2026-05-12"}
+      ]
     },
     {
       "name": "Gabriel Fernandes",
@@ -203,7 +230,12 @@
       "newsignPts": 0,
       "recallPts": 5,
       "potential": 36,
-      "status": "critical"
+      "status": "critical",
+      "followUp": [
+        {"merchant": "Temaki House", "points": 6, "status": "跟进中", "lastAction": "Menu Review", "risk": "medium", "lastVisit": "2026-05-21"},
+        {"merchant": "Yakisoba Express", "points": 4, "status": "已完成", "lastAction": "Onboarded", "risk": "low", "lastVisit": "2026-05-19"},
+        {"merchant": "Dim Sum Palace", "points": 3, "status": "待跟进", "lastAction": "Follow-up Call", "risk": "high", "lastVisit": "2026-05-16"}
+      ]
     },
     {
       "name": "Vitor Silva",
@@ -218,7 +250,12 @@
       "newsignPts": 0,
       "recallPts": 7,
       "potential": 77,
-      "status": "at-risk"
+      "status": "at-risk",
+      "followUp": [
+        {"merchant": "Hot holl prime sushi", "points": 14, "status": "跟进中", "lastAction": "Push to Online", "risk": "high", "lastVisit": "2026-05-22"},
+        {"merchant": "Ramen do Beco", "points": 5, "status": "已完成", "lastAction": "Activated", "risk": "low", "lastVisit": "2026-05-20"},
+        {"merchant": "Bento Box", "points": 4, "status": "待跟进", "lastAction": "Awaiting Approval", "risk": "medium", "lastVisit": "2026-05-18"}
+      ]
     },
     {
       "name": "Crystiano Oliveira",
@@ -233,7 +270,12 @@
       "newsignPts": 0,
       "recallPts": 0,
       "potential": 73,
-      "status": "critical"
+      "status": "critical",
+      "followUp": [
+        {"merchant": "Raful Cozinha Árabe", "points": 14, "status": "跟进中", "lastAction": "Push to Online", "risk": "high", "lastVisit": "2026-05-22"},
+        {"merchant": "Taco Loco", "points": 5, "status": "待跟进", "lastAction": "No Reply", "risk": "critical", "lastVisit": "2026-05-14"},
+        {"merchant": "Poke Bowl SP", "points": 3, "status": "待跟进", "lastAction": "Site Visit Needed", "risk": "high", "lastVisit": "2026-05-16"}
+      ]
     },
     {
       "name": "Leonardo Lopes",
@@ -248,7 +290,12 @@
       "newsignPts": 0,
       "recallPts": 0,
       "potential": 87,
-      "status": "critical"
+      "status": "critical",
+      "followUp": [
+        {"merchant": "Lanches Mansour", "points": 29, "status": "跟进中", "lastAction": "Push to Online", "risk": "high", "lastVisit": "2026-05-22"},
+        {"merchant": "Gyoza Bar", "points": 6, "status": "待跟进", "lastAction": "Contract Sent", "risk": "medium", "lastVisit": "2026-05-19"},
+        {"merchant": "Matcha Garden", "points": 4, "status": "已完成", "lastAction": "Promo Live", "risk": "low", "lastVisit": "2026-05-20"}
+      ]
     },
     {
       "name": "Geovana Batista",
@@ -263,7 +310,11 @@
       "newsignPts": 0,
       "recallPts": 0,
       "potential": 58,
-      "status": "critical"
+      "status": "critical",
+      "followUp": [
+        {"merchant": "Café Liberdade", "points": 5, "status": "跟进中", "lastAction": "Recall Visit", "risk": "medium", "lastVisit": "2026-05-21"},
+        {"merchant": "Doces da Vovó", "points": 3, "status": "待跟进", "lastAction": "Awaiting Response", "risk": "high", "lastVisit": "2026-05-15"}
+      ]
     }
   ],
   "keyMerchants": [
